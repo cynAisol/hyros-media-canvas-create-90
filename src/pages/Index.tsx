@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,6 +7,8 @@ import { Monitor, Smartphone, Globe, Code, Users, Award, ArrowRight, Mail, Phone
 import { useState } from "react";
 import WorkingProcess from "@/components/WorkingProcess";
 import StrategicPartners from "@/components/StrategicPartners";
+import FAQ from "@/components/FAQ";
+import TypingAnimation from "@/components/TypingAnimation";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -63,6 +64,8 @@ const Index = () => {
     }
   ];
 
+  const typingTexts = ["Future Today", "Success Story", "Dreams Reality", "Vision to Life"];
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -102,9 +105,7 @@ const Index = () => {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
             Build Your Digital
             <br />
-            <span className="text-blue-400">
-              Future Today
-            </span>
+            <TypingAnimation texts={typingTexts} speed={150} pauseDuration={1500} />
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 animate-fade-in">
             We create stunning, high-performance websites that drive results for your business. 
@@ -249,6 +250,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* Contact Section */}
       <section id="contact" className="py-20">
