@@ -6,6 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Monitor, Smartphone, Globe, Code, Users, Award, ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
+import WorkingProcess from "@/components/WorkingProcess";
+import StrategicPartners from "@/components/StrategicPartners";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -68,7 +70,7 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg"></div>
+              <div className="w-8 h-8 bg-blue-600 rounded-lg"></div>
               <span className="text-2xl font-bold text-gray-900">HYROS MEDIA</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
@@ -78,7 +80,7 @@ const Index = () => {
               <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">About</a>
               <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
             </div>
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
               Get Started
             </Button>
           </div>
@@ -100,7 +102,7 @@ const Index = () => {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
             Build Your Digital
             <br />
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="text-blue-400">
               Future Today
             </span>
           </h1>
@@ -109,7 +111,7 @@ const Index = () => {
             From concept to launch, we're your digital transformation partners.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-6">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6">
               Start Your Project
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
@@ -136,7 +138,7 @@ const Index = () => {
             {services.map((service, index) => (
               <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <CardHeader className="text-center">
-                  <div className="mx-auto w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
+                  <div className="mx-auto w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
                     {service.icon}
                   </div>
                   <CardTitle className="text-xl">{service.title}</CardTitle>
@@ -151,6 +153,12 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Working Process Section */}
+      <WorkingProcess />
+
+      {/* Strategic Partners Section */}
+      <StrategicPartners />
 
       {/* Portfolio Section */}
       <section id="portfolio" className="py-20">
