@@ -70,16 +70,16 @@ const StrategicPartners = () => {
         </div>
 
         {/* First row of partners */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 mb-12 items-center">
           {partners.map((partner, index) => (
             <div 
               key={index}
-              className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="flex items-center justify-center p-8 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-h-[120px]"
             >
               <img 
                 src={partner.logo}
                 alt={partner.name}
-                className="max-h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                className="max-h-16 max-w-full w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                 onError={(e) => {
                   e.currentTarget.src = `https://via.placeholder.com/150x60/6b7280/ffffff?text=${partner.name}`;
                 }}
@@ -89,16 +89,16 @@ const StrategicPartners = () => {
         </div>
 
         {/* Second row of partners */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 items-center">
           {secondRowPartners.map((partner, index) => (
             <div 
               key={index}
-              className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="flex items-center justify-center p-8 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-h-[120px]"
             >
               <img 
                 src={partner.logo}
                 alt={partner.name}
-                className="max-h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                className="max-h-16 max-w-full w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
               />
             </div>
           ))}
