@@ -7,6 +7,7 @@ import { Monitor, Smartphone, Globe, Code, Users, Award, ArrowRight, Mail, Phone
 import { useState } from "react";
 import WorkingProcess from "@/components/WorkingProcess";
 import StrategicPartners from "@/components/StrategicPartners";
+import WhyUs from "@/components/WhyUs";
 import FAQ from "@/components/FAQ";
 import TypingAnimation from "@/components/TypingAnimation";
 
@@ -123,45 +124,13 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4">Our Services</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              What We Do Best
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We provide comprehensive digital solutions to help your business thrive in the modern web landscape.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <CardHeader className="text-center">
-                  <div className="mx-auto w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
-                    {service.icon}
-                  </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-center">
-                    {service.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Working Process Section */}
-      <WorkingProcess />
-
-      {/* Strategic Partners Section */}
+      {/* Strategic Partners Section - Icons/logos of websites we made */}
       <StrategicPartners />
 
-      {/* Portfolio Section */}
+      {/* Benefits/Why US Section */}
+      <WhyUs />
+
+      {/* Portfolio Section - Website previews */}
       <section id="portfolio" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -198,6 +167,41 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Services Section - Reviews placeholder for now */}
+      <section id="services" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge className="mb-4">Our Services</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              What We Do Best
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We provide comprehensive digital solutions to help your business thrive in the modern web landscape.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => (
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <CardHeader className="text-center">
+                  <div className="mx-auto w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
+                    {service.icon}
+                  </div>
+                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-center">
+                    {service.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Working Process Section */}
+      <WorkingProcess />
 
       {/* About Section */}
       <section id="about" className="py-20 bg-gray-50">
