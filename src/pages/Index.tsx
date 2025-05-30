@@ -112,27 +112,38 @@ const Index = () => {
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
           }}
         ></div>
-        <div className="relative z-10 container mx-auto px-4 py-32 text-center text-white">
-          <Badge className="mb-6 bg-white/20 text-white border-white/30">
-            Premium Web Agency
-          </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-            Build Your Digital
-            <br />
-            <TypingAnimation texts={typingTexts} speed={150} pauseDuration={1500} />
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 animate-fade-in">
-            We create stunning, high-performance websites that drive results for your business. 
-            From concept to launch, we're your digital transformation partners.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6">
-              Start Your Project
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900 text-lg px-8 py-6">
-              View Our Work
-            </Button>
+        <div className="relative z-10 container mx-auto px-4 py-32">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-white">
+              <Badge className="mb-6 bg-white/20 text-white border-white/30">
+                Premium Web Agency
+              </Badge>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+                Build Your Digital
+                <br />
+                <TypingAnimation texts={typingTexts} speed={150} pauseDuration={1500} />
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 max-w-2xl opacity-90 animate-fade-in">
+                We create stunning, high-performance websites that drive results for your business. 
+                From concept to launch, we're your digital transformation partners.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6">
+                  Start Your Project
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900 text-lg px-8 py-6">
+                  View Our Work
+                </Button>
+              </div>
+            </div>
+            <div className="relative animate-fade-in">
+              <img 
+                src="https://d1hdtc0tbqeghx.cloudfront.net/wp-content/uploads/2024/02/29110639/Web-Design-and-Development-agency-Digital-Transformation.webp"
+                alt="Digital Transformation"
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
