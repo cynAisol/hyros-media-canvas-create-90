@@ -1,10 +1,12 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Monitor, Smartphone, Globe, Code, Users, Award, ArrowRight, Mail, Phone, MapPin } from "lucide-react";
+import { Monitor, Smartphone, Globe, Code, Users, Award, ArrowRight, Mail, Phone, MapPin, Sun, Moon } from "lucide-react";
 import { useState } from "react";
+import { useTheme } from "next-themes";
 import WorkingProcess from "@/components/WorkingProcess";
 import StrategicPartners from "@/components/StrategicPartners";
 import WhyUs from "@/components/WhyUs";
@@ -17,11 +19,17 @@ const Index = () => {
     email: '',
     message: ''
   });
+  
+  const { theme, setTheme } = useTheme();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Handle form submission here
+  };
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
   const services = [
@@ -68,24 +76,29 @@ const Index = () => {
   const typingTexts = ["Future Today", "Success Story", "Dreams Reality", "Vision to Life"];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+      <nav className="fixed top-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-100 dark:border-gray-800">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-blue-600 rounded-lg"></div>
-              <span className="text-2xl font-bold text-gray-900">HYROS MEDIA</span>
+              <span className="text-2xl font-bold text-gray-900 dark:text-white">HACHI AGENCY</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
-              <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
-              <a href="#portfolio" className="text-gray-700 hover:text-blue-600 transition-colors">Portfolio</a>
-              <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">About</a>
-              <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+              <a href="#home" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
+              <a href="#services" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services</a>
+              <a href="#portfolio" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Portfolio</a>
+              <a href="#about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
+              <a href="#contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-              Get Started
+            <Button 
+              onClick={toggleTheme}
+              variant="outline" 
+              size="icon"
+              className="border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
           </div>
         </div>
@@ -131,20 +144,20 @@ const Index = () => {
       <WhyUs />
 
       {/* Portfolio Section - Website previews */}
-      <section id="portfolio" className="py-20">
+      <section id="portfolio" className="py-20 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4">Our Work</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               Portfolio Highlights
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
               Discover some of our recent projects that showcase our expertise and creativity.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
-              <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all duration-300">
+              <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all duration-300 dark:bg-gray-800 dark:border-gray-700">
                 <div className="relative overflow-hidden">
                   <img 
                     src={item.image}
@@ -158,7 +171,7 @@ const Index = () => {
                     <Badge variant="secondary">{item.category}</Badge>
                     <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
                   </div>
-                  <CardTitle className="group-hover:text-blue-600 transition-colors">
+                  <CardTitle className="group-hover:text-blue-600 transition-colors dark:text-white">
                     {item.title}
                   </CardTitle>
                 </CardHeader>
@@ -169,28 +182,28 @@ const Index = () => {
       </section>
 
       {/* Services Section - Reviews placeholder for now */}
-      <section id="services" className="py-20 bg-gray-50">
+      <section id="services" className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4">Our Services</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               What We Do Best
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
               We provide comprehensive digital solutions to help your business thrive in the modern web landscape.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 dark:bg-gray-700 dark:border-gray-600">
                 <CardHeader className="text-center">
                   <div className="mx-auto w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
                     {service.icon}
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardTitle className="text-xl dark:text-white">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-center">
+                  <CardDescription className="text-center dark:text-gray-400">
                     {service.description}
                   </CardDescription>
                 </CardContent>
@@ -204,31 +217,31 @@ const Index = () => {
       <WorkingProcess />
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gray-50">
+      <section id="about" className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <Badge className="mb-4">About Us</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
                 Crafting Digital Excellence Since Day One
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                At HYROS MEDIA, we're passionate about creating digital experiences that matter. 
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                At HACHI AGENCY, we're passionate about creating digital experiences that matter. 
                 Our team of skilled developers, designers, and strategists work together to bring 
                 your vision to life with cutting-edge technology and creative innovation.
               </p>
               <div className="grid grid-cols-3 gap-8 mb-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-blue-600 mb-2">150+</div>
-                  <div className="text-gray-600">Projects Completed</div>
+                  <div className="text-gray-600 dark:text-gray-400">Projects Completed</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-blue-600 mb-2">98%</div>
-                  <div className="text-gray-600">Client Satisfaction</div>
+                  <div className="text-gray-600 dark:text-gray-400">Client Satisfaction</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-blue-600 mb-2">5+</div>
-                  <div className="text-gray-600">Years Experience</div>
+                  <div className="text-gray-600 dark:text-gray-400">Years Experience</div>
                 </div>
               </div>
               <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
@@ -241,12 +254,12 @@ const Index = () => {
                 alt="Team working"
                 className="rounded-2xl shadow-2xl"
               />
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
+              <div className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
                 <div className="flex items-center space-x-4">
                   <Award className="w-8 h-8 text-blue-600" />
                   <div>
-                    <div className="font-bold text-gray-900">Award Winning</div>
-                    <div className="text-gray-600">Design Agency</div>
+                    <div className="font-bold text-gray-900 dark:text-white">Award Winning</div>
+                    <div className="text-gray-600 dark:text-gray-400">Design Agency</div>
                   </div>
                 </div>
               </div>
@@ -259,28 +272,29 @@ const Index = () => {
       <FAQ />
 
       {/* Contact Section */}
-      <section id="contact" className="py-20">
+      <section id="contact" className="py-20 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4">Get In Touch</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               Ready to Start Your Project?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
               Let's discuss how we can help bring your digital vision to life.
             </p>
           </div>
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Information</h3>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Email</div>
-                    <div className="text-gray-600">hello@hyrosmedia.com</div>
+                    <div className="font-semibold text-gray-900 dark:text-white">Email</div>
+                    <div className="text-gray-600 dark:text-gray-400">hachiagency.com@gmail.com</div>
+                    <div className="text-gray-600 dark:text-gray-400">contact@hachiagency.com</div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -288,8 +302,8 @@ const Index = () => {
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Phone</div>
-                    <div className="text-gray-600">+1 (555) 123-4567</div>
+                    <div className="font-semibold text-gray-900 dark:text-white">Phone</div>
+                    <div className="text-gray-600 dark:text-gray-400">+1 (555) 123-4567</div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -297,20 +311,20 @@ const Index = () => {
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Location</div>
-                    <div className="text-gray-600">San Francisco, CA</div>
+                    <div className="font-semibold text-gray-900 dark:text-white">Location</div>
+                    <div className="text-gray-600 dark:text-gray-400">San Francisco, CA</div>
                   </div>
                 </div>
               </div>
             </div>
-            <Card className="p-8">
+            <Card className="p-8 dark:bg-gray-800 dark:border-gray-700">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Input 
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="h-12"
+                    className="h-12 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                   />
                 </div>
                 <div>
@@ -319,7 +333,7 @@ const Index = () => {
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="h-12"
+                    className="h-12 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                   />
                 </div>
                 <div>
@@ -327,7 +341,7 @@ const Index = () => {
                     placeholder="Tell us about your project..."
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="min-h-[120px]"
+                    className="min-h-[120px] dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                   />
                 </div>
                 <Button 
@@ -344,13 +358,13 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
+      <footer className="bg-gray-900 dark:bg-black text-white py-16">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-6">
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg"></div>
-                <span className="text-2xl font-bold">HYROS MEDIA</span>
+                <span className="text-2xl font-bold">HACHI AGENCY</span>
               </div>
               <p className="text-gray-400 mb-6">
                 Creating digital experiences that drive success for businesses worldwide.
@@ -385,7 +399,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 HYROS MEDIA. All rights reserved.</p>
+            <p>&copy; 2024 HACHI AGENCY. All rights reserved.</p>
           </div>
         </div>
       </footer>
