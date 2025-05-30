@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -12,6 +11,7 @@ import StrategicPartners from "@/components/StrategicPartners";
 import WhyUs from "@/components/WhyUs";
 import FAQ from "@/components/FAQ";
 import TypingAnimation from "@/components/TypingAnimation";
+import Portfolio from "@/components/Portfolio";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -52,24 +52,6 @@ const Index = () => {
       icon: <Code className="w-8 h-8" />,
       title: "E-commerce Solutions",
       description: "Powerful online stores that drive sales and provide seamless shopping experiences."
-    }
-  ];
-
-  const portfolioItems = [
-    {
-      title: "Tech Startup Platform",
-      category: "Web Development",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      title: "E-commerce Marketplace",
-      category: "E-commerce",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      title: "Corporate Website",
-      category: "Corporate",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -154,43 +136,8 @@ const Index = () => {
       {/* Benefits/Why US Section */}
       <WhyUs />
 
-      {/* Portfolio Section - Website previews */}
-      <section id="portfolio" className="py-20 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4">Our Work</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Portfolio Highlights
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Discover some of our recent projects that showcase our expertise and creativity.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioItems.map((item, index) => (
-              <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all duration-300 dark:bg-gray-800 dark:border-gray-700">
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <Badge variant="secondary">{item.category}</Badge>
-                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
-                  </div>
-                  <CardTitle className="group-hover:text-blue-600 transition-colors dark:text-white">
-                    {item.title}
-                  </CardTitle>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Portfolio Section - Website previews with sticky scroll */}
+      <Portfolio />
 
       {/* Services Section - Reviews placeholder for now */}
       <section id="services" className="py-20 bg-gray-50 dark:bg-gray-800">
