@@ -54,7 +54,7 @@ const StrategicPartners = () => {
           <span className="absolute -left-8 top-2 text-3xl">🎉</span>
           <Badge className="mb-2 bg-orange-500 text-white">Partners</Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 flex items-center justify-center gap-2">
-            <span>Our Clients</span>
+            <span>Our Portfolio </span>
             <span className="text-2xl">🤝</span>
           </h2>
           <div className="text-gray-500 text-lg mb-4">Trusted by leading brands worldwide</div>
