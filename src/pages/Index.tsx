@@ -177,8 +177,24 @@ const Index = () => {
         </div>
       </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       {/* Services Section - Reviews placeholder for now */}
-      <section id="services" className="py-20 bg-gray-50">
+      {/* <section id="services" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4">Our Services</Badge>
@@ -209,7 +225,23 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Working Process Section */}
       <WorkingProcess />
