@@ -36,16 +36,41 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section className="py-20 bg-white relative overflow-hidden">
+      {/* Blurred Blob Background - Left Side */}
+      <svg
+        className="absolute -top-32 -left-32 w-[500px] h-[500px] z-0 blur-3xl opacity-30 pointer-events-none select-none"
+        viewBox="0 0 500 500"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <ellipse cx="250" cy="250" rx="220" ry="180" fill="#a78bfa" />
+        <ellipse cx="350" cy="180" rx="120" ry="90" fill="#34d399" fillOpacity="0.6" />
+      </svg>
+      {/* Blurred Blob Background - Right Side */}
+      <svg
+        className="absolute -bottom-24 right-0 w-[400px] h-[400px] z-0 blur-2xl opacity-20 pointer-events-none select-none"
+        viewBox="0 0 400 400"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <ellipse cx="200" cy="200" rx="170" ry="120" fill="#fbbf24" />
+        <ellipse cx="300" cy="120" rx="80" ry="60" fill="#60A5FA" fillOpacity="0.4" />
+      </svg>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-16 flex flex-col items-center relative">
+          <span className="absolute -left-8 top-2 text-3xl">❓</span>
           <Badge className="mb-4">FAQ</Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Frequently Asked Questions
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2 flex items-center justify-center gap-2">
+            <span>Frequently Asked Questions</span>
+            <span className="text-3xl">🤔</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
             Get answers to the most common questions about our services and process.
           </p>
+          <span className="absolute -right-8 top-2 text-3xl">💭</span>
         </div>
         
         <div className="max-w-4xl mx-auto">
@@ -65,6 +90,17 @@ const FAQ = () => {
               </AccordionItem>
             ))}
           </Accordion>
+        </div>
+        
+        {/* FAQ Support Card */}
+        <div className="flex justify-center mt-12">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-lg text-left border border-gray-100">
+            <div className="text-blue-600 font-bold mb-2 flex items-center gap-2">
+              <span>🔍</span>
+              <span>Still have questions?</span>
+            </div>
+            <div className="text-gray-700">Don't hesitate to reach out! Our team is here to help you understand exactly how we can bring your vision to life.</div>
+          </div>
         </div>
       </div>
     </section>

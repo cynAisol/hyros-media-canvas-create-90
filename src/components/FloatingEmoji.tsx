@@ -1,6 +1,5 @@
+
 import React, { useEffect, useState } from "react";
-import data from "emoji-mart/data/all.json";
-import { NimblePicker } from "emoji-mart";
 
 const EMOJI_LIST = [
   "🚀", "🎉", "✨", "🔥", "💡", "🌟", "😎", "🦄", "💻", "🎨", "📈", "🧠", "🤖", "🌈", "🍀", "🍕", "🥇", "🏆", "🎯", "🛠️"
@@ -57,4 +56,4 @@ const FloatingEmoji: React.FC<{ count?: number }> = ({ count = 10 }) => {
   );
 };
 
-export default FloatingEmoji; 
+export default FloatingEmoji;
