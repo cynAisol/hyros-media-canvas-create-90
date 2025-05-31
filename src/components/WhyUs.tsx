@@ -53,7 +53,7 @@ const WhyUs = () => {
           <span className="absolute -left-8 top-2 text-3xl">💡</span>
           <Badge className="mb-4">Why Choose Us</Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2 flex items-center justify-center gap-2">
-            <span>Why *HYROS MEDIA</span>
+            <span>Why *HACHI MEDIA</span>
             <span className="text-3xl">🌟</span>
           </h2>
           <div className="text-gray-500 text-lg mb-4">Your partner for speed, security, and innovation</div>
@@ -120,7 +120,7 @@ const WhyUs = () => {
       <div className="flex justify-center mt-12">
         <div className="bg-white rounded-xl shadow-lg p-6 max-w-lg text-left border border-gray-100">
           <div className="text-blue-600 font-bold mb-2">Did you know?</div>
-          <div className="text-gray-700">HYROS MEDIA has helped over <span className='font-bold'>49+</span> businesses launch their digital presence with a 98% client satisfaction rate!</div>
+          <div className="text-gray-700">HACHI MEDIA has helped over <span className='font-bold'>49+</span> businesses launch their digital presence with a 98% client satisfaction rate!</div>
         </div>
       </div>
     </section>

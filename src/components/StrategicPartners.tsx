@@ -78,7 +78,7 @@ const StrategicPartners = () => {
           {/* Testimonial Card */}
           <div className="mt-10 flex justify-center">
             <div className="bg-white rounded-xl shadow-lg p-6 max-w-lg text-left border border-gray-100">
-              <div className="text-gray-700 italic mb-2">“Working with HYROS MEDIA was a game changer for our business. Their team delivered beyond expectations!”</div>
+              <div className="text-gray-700 italic mb-2">“Working with HACHI MEDIA was a game changer for our business. Their team delivered beyond expectations!”</div>
               <div className="font-bold text-gray-900">— Alex P., CEO of ExampleCorp</div>
             </div>
           </div>
