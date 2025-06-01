@@ -36,15 +36,15 @@ const StrategicPartners = () => {
           <div className="text-gray-600 text-lg mb-4">Trusted by leading brands worldwide</div>
         </div>
         
-        {/* Horizontally Scrolling Container */}
+        {/* Auto-scrolling Container */}
         <div className="relative">
-          <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex gap-6 pb-4" style={{ width: 'max-content' }}>
-              {/* Duplicate partners for seamless loop effect */}
-              {[...partners, ...partners].map((partner, index) => (
+          <div className="overflow-hidden">
+            <div className="flex gap-6 animate-scroll">
+              {/* Triple the partners for seamless loop */}
+              {[...partners, ...partners, ...partners].map((partner, index) => (
                 <div 
                   key={index} 
-                  className="flex items-center justify-center bg-white rounded-lg shadow-sm border border-gray-200 min-h-[80px] min-w-[150px] p-4 hover:shadow-md transition-shadow duration-300"
+                  className="flex items-center justify-center bg-white rounded-lg shadow-sm border border-gray-200 min-h-[80px] min-w-[150px] p-4 hover:shadow-md transition-shadow duration-300 flex-shrink-0"
                 >
                   <img
                     src={partner.logo}
@@ -68,17 +68,6 @@ const StrategicPartners = () => {
           </div>
         </div>
       </div>
-      
-      {/* Custom CSS for hiding scrollbar */}
-      <style>{`
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </section>
   );
 };
