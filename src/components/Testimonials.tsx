@@ -47,21 +47,21 @@ const Testimonials = () => {
       <Star
         key={index}
         className={`w-4 h-4 ${
-          index < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
+          index < rating ? 'fill-[#38B6FF] text-[#38B6FF]' : 'text-black'
         }`}
       />
     ));
   };
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
             Trusted by Professionals
           </h2>
-          <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+          <p className="text-lg text-black max-w-4xl mx-auto">
             While most of my client reviews are NDA-protected (because, you know, top-secret agency white label stuff), 
             I managed to sneak in a few favorites from my previous partners.
           </p>
@@ -70,18 +70,18 @@ const Testimonials = () => {
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div key={testimonial.id} className="bg-black rounded-xl p-6 shadow-sm border border-black hover:shadow-md transition-shadow">
               {/* Stars */}
               <div className="flex mb-4">
                 {renderStars(testimonial.rating)}
               </div>
 
               {/* Testimonial Text */}
-              <p className="text-gray-900 font-semibold mb-3 text-sm leading-relaxed">
+              <p className="text-white font-semibold mb-3 text-sm leading-relaxed">
                 {testimonial.text}
               </p>
               
-              <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+              <p className="text-white text-sm mb-6 leading-relaxed">
                 {testimonial.additionalText}
               </p>
 
@@ -93,15 +93,15 @@ const Testimonials = () => {
                     alt={testimonial.author}
                     className="object-cover"
                   />
-                  <AvatarFallback className="bg-blue-100 text-blue-600 font-semibold">
+                  <AvatarFallback className="bg-[#38B6FF] text-white font-semibold">
                     {testimonial.author.split(' ').map(n => n[0]).join('')}
                   </AvatarFallback>
                 </Avatar>
                 <div className="min-w-0">
-                  <div className="font-semibold text-gray-900 text-sm truncate">
+                  <div className="font-semibold text-white text-sm truncate">
                     {testimonial.author}
                   </div>
-                  <div className="text-gray-500 text-xs truncate">
+                  <div className="text-white text-xs truncate">
                     {testimonial.position}
                   </div>
                 </div>
