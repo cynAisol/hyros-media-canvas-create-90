@@ -57,20 +57,20 @@ const WorkingProcess = () => {
             <svg className="w-full h-24" viewBox="0 0 1200 100" fill="none">
               <path 
                 d="M0 50 Q300 20 600 50 T1200 50" 
-                stroke="#38B6FF" 
-                strokeWidth="3" 
+                stroke="#6B7280" 
+                strokeWidth="2" 
                 fill="none"
               />
               <path 
                 d="M0 50 Q300 80 600 50 T1200 50" 
-                stroke="#ffffff" 
-                strokeWidth="2" 
+                stroke="#9CA3AF" 
+                strokeWidth="1" 
                 fill="none"
               />
               <path 
                 d="M0 50 Q300 30 600 50 T1200 50" 
-                stroke="#38B6FF" 
-                strokeWidth="2" 
+                stroke="#6B7280" 
+                strokeWidth="1" 
                 fill="none"
                 opacity="0.5"
               />
@@ -87,13 +87,13 @@ const WorkingProcess = () => {
                 }`}
               >
                 {/* Step circle */}
-                <div className="w-6 h-6 rounded-full bg-[#38B6FF] mb-4 relative z-10"></div>
+                <div className="w-6 h-6 rounded-full bg-gray-400 mb-4 relative z-10"></div>
                 
                 {/* Step content */}
                 <div className={`bg-white text-black rounded-lg p-4 max-w-xs text-center ${
                   step.position === "top" ? "order-first" : "order-last"
                 }`}>
-                  <h3 className="text-[#38B6FF] font-semibold text-lg mb-2">
+                  <h3 className="text-gray-600 font-semibold text-lg mb-2">
                     {step.title}
                   </h3>
                   <p className="text-black text-sm">
