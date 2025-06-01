@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -31,7 +32,7 @@ import {
 	Play,
 	CheckCircle,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WorkingProcess from "@/components/WorkingProcess";
 import StrategicPartners from "@/components/StrategicPartners";
 import WhyUs from "@/components/WhyUs";
@@ -47,6 +48,29 @@ const Index = () => {
 		email: "",
 		message: "",
 	});
+
+	// Scroll trigger animation hook
+	useEffect(() => {
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('animate-fade-in');
+					entry.target.classList.remove('opacity-0');
+				}
+			});
+		}, observerOptions);
+
+		// Observe all elements with scroll-trigger class
+		const elements = document.querySelectorAll('.scroll-trigger');
+		elements.forEach((el) => observer.observe(el));
+
+		return () => observer.disconnect();
+	}, []);
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
@@ -134,7 +158,7 @@ const Index = () => {
 				<div className="container mx-auto px-4 py-4">
 					<div className="flex items-center justify-between">
 						<div className="flex items-center space-x-2 animate-fade-in">
-							<div className="w-8 h-8 bg-[#38B6FF] rounded-lg animate-pulse"></div>
+							<div className="w-8 h-8 bg-[#38B6FF] rounded-lg"></div>
 							<span className="text-2xl font-bold text-foreground">
 								HACHI AGENCY
 							</span>
@@ -171,14 +195,14 @@ const Index = () => {
 					<div className="grid lg:grid-cols-2 gap-16 items-center">
 						<div className="space-y-8">
 							{/* Badge with enhanced styling */}
-							<div className="animate-fade-in">
+							<div className="scroll-trigger opacity-0">
 								<Badge className="bg-[#38B6FF] text-white border-0 px-4 py-2 text-sm font-medium">
 									✨ #1 Premium Web Agency
 								</Badge>
 							</div>
 
 							{/* Main Headline */}
-							<div className="animate-fade-in space-y-4">
+							<div className="scroll-trigger opacity-0 space-y-4">
 								<h1 className="text-5xl md:text-7xl font-bold text-foreground leading-tight">
 									Build Your
 									<br />
@@ -195,7 +219,7 @@ const Index = () => {
 							</div>
 
 							{/* Enhanced Description */}
-							<div className="animate-fade-in space-y-6">
+							<div className="scroll-trigger opacity-0 space-y-6">
 								<p className="text-xl md:text-2xl text-foreground max-w-2xl leading-relaxed">
 									We create{" "}
 									<span className="font-semibold text-foreground">
@@ -229,7 +253,7 @@ const Index = () => {
 							</div>
 
 							{/* Enhanced CTAs */}
-							<div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
+							<div className="flex flex-col sm:flex-row gap-4 scroll-trigger opacity-0">
 								<Button
 									size="lg"
 									className="bg-[#38B6FF] hover:bg-white hover:text-black text-white text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
@@ -248,7 +272,7 @@ const Index = () => {
 							</div>
 
 							{/* Social Proof */}
-							<div className="animate-fade-in pt-4">
+							<div className="scroll-trigger opacity-0 pt-4">
 								<div className="flex items-center gap-6">
 									<div className="flex items-center gap-2">
 										<div className="flex -space-x-2">
@@ -281,7 +305,7 @@ const Index = () => {
 						</div>
 
 						{/* Enhanced Visual Section */}
-						<div className="relative animate-fade-in">
+						<div className="relative scroll-trigger opacity-0">
 							<div className="relative">
 								{/* Main Image with enhanced styling */}
 								<div className="relative overflow-hidden rounded-3xl shadow-2xl bg-card border-2 border-border p-8">
@@ -293,11 +317,8 @@ const Index = () => {
 									/>
 
 									{/* Floating elements */}
-									<div className="absolute -top-4 -left-4 w-20 h-20 bg-[#38B6FF] rounded-2xl opacity-80 animate-pulse"></div>
-									<div
-										className="absolute -bottom-4 -right-4 w-16 h-16 bg-white rounded-xl opacity-60 animate-pulse"
-										style={{ animationDelay: "1s" }}
-									></div>
+									<div className="absolute -top-4 -left-4 w-20 h-20 bg-[#38B6FF] rounded-2xl opacity-80"></div>
+									<div className="absolute -bottom-4 -right-4 w-16 h-16 bg-white rounded-xl opacity-60"></div>
 								</div>
 
 								{/* Stats Cards */}
@@ -352,23 +373,20 @@ const Index = () => {
 				<FloatingElements />
 
 				<div className="container mx-auto px-4 relative z-10">
-					<div className="text-center mb-16 flex flex-col items-center relative">
-						<span className="absolute -left-8 top-2 text-3xl animate-bounce">💼</span>
-						<Badge className="mb-4 bg-[#38B6FF] text-white animate-pulse">Our Work</Badge>
-						<h2 className="text-4xl md:text-5xl font-bold text-foreground mb-2 flex items-center justify-center gap-2 animate-fade-in">
+					<div className="text-center mb-16 flex flex-col items-center relative scroll-trigger opacity-0">
+						<Badge className="mb-4 bg-[#38B6FF] text-white">Our Work</Badge>
+						<h2 className="text-4xl md:text-5xl font-bold text-foreground mb-2 flex items-center justify-center gap-2">
 							<span>Portfolio Highlights</span>
-							<span className="text-3xl animate-bounce" style={{ animationDelay: '0.5s' }}>🎨</span>
 						</h2>
-						<p className="text-xl text-foreground max-w-3xl mx-auto mb-4 animate-fade-in">
+						<p className="text-xl text-foreground max-w-3xl mx-auto mb-4">
 							Discover some of our recent projects that showcase our expertise
 							and creativity.
 						</p>
-						<span className="absolute -right-8 top-2 text-3xl animate-bounce" style={{ animationDelay: '1s' }}>✨</span>
 					</div>
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{portfolioItems.map((item, index) => (
 							<a href={item.url} key={index} className="group">
-								<Card className="group overflow-hidden transition-all duration-500 border-border bg-card transform hover:scale-[1.02] hover:shadow-2xl animate-fade-in relative"
+								<Card className="group overflow-hidden transition-all duration-500 border-border bg-card transform hover:scale-[1.02] hover:shadow-2xl scroll-trigger opacity-0 relative"
 									style={{ animationDelay: `${index * 0.1}s` }}
 								>
 									{/* Animated border gradient */}
@@ -384,7 +402,7 @@ const Index = () => {
 										<div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
 											<div className="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
 												<div className="text-lg font-semibold mb-2">View Project</div>
-												<div className="w-12 h-0.5 bg-[#38B6FF] mx-auto animate-pulse"></div>
+												<div className="w-12 h-0.5 bg-[#38B6FF] mx-auto"></div>
 											</div>
 										</div>
 										
@@ -408,7 +426,7 @@ const Index = () => {
 													{item.title}
 												</CardTitle>
 												<div className="flex items-center gap-2 text-sm text-muted-foreground">
-													<div className="w-2 h-2 bg-[#38B6FF] rounded-full animate-pulse"></div>
+													<div className="w-2 h-2 bg-[#38B6FF] rounded-full"></div>
 													<span>Click to explore</span>
 												</div>
 											</div>
@@ -426,17 +444,17 @@ const Index = () => {
 					</div>
 					{/* Enhanced Portfolio Showcase Card */}
 					<div className="flex justify-center mt-12">
-						<div className="bg-card rounded-xl shadow-lg p-6 max-w-lg text-left border border-border hover:shadow-2xl transform hover:scale-105 transition-all duration-500 animate-fade-in relative overflow-hidden">
+						<div className="bg-card rounded-xl shadow-lg p-6 max-w-lg text-left border border-border hover:shadow-2xl transform hover:scale-105 transition-all duration-500 scroll-trigger opacity-0 relative overflow-hidden">
 							{/* Animated background */}
-							<div className="absolute inset-0 bg-gradient-to-r from-[#38B6FF]/5 to-white/5 animate-pulse"></div>
+							<div className="absolute inset-0 bg-gradient-to-r from-[#38B6FF]/5 to-white/5"></div>
 							<div className="relative z-10">
 								<div className="text-[#38B6FF] font-bold mb-2 flex items-center gap-2">
-									<span className="animate-spin">🎯</span>
+									<span>🎯</span>
 									<span>Showcase Highlight</span>
 									<div className="flex gap-1">
-										<div className="w-1 h-1 bg-[#38B6FF] rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
-										<div className="w-1 h-1 bg-[#38B6FF] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-										<div className="w-1 h-1 bg-[#38B6FF] rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+										<div className="w-1 h-1 bg-[#38B6FF] rounded-full" style={{ animationDelay: '0s' }}></div>
+										<div className="w-1 h-1 bg-[#38B6FF] rounded-full" style={{ animationDelay: '0.2s' }}></div>
+										<div className="w-1 h-1 bg-[#38B6FF] rounded-full" style={{ animationDelay: '0.4s' }}></div>
 									</div>
 								</div>
 								<div className="text-foreground">
@@ -462,8 +480,8 @@ const Index = () => {
 
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="grid lg:grid-cols-2 gap-16 items-center">
-						<div className="animate-fade-in">
-							<Badge className="mb-4 bg-[#38B6FF] text-white animate-pulse">About Us</Badge>
+						<div className="scroll-trigger opacity-0">
+							<Badge className="mb-4 bg-[#38B6FF] text-white">About Us</Badge>
 							<h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
 								Crafting Digital Excellence Since Day One
 							</h2>
@@ -479,8 +497,8 @@ const Index = () => {
 									{ value: "98%", label: "Client Satisfaction" },
 									{ value: "5+", label: "Years Experience" }
 								].map((stat, index) => (
-									<div key={index} className="text-center transform hover:scale-110 transition-transform duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
-										<div className="text-3xl font-bold text-[#38B6FF] mb-2 animate-pulse">
+									<div key={index} className="text-center transform hover:scale-110 transition-transform duration-300 scroll-trigger opacity-0" style={{ animationDelay: `${index * 0.2}s` }}>
+										<div className="text-3xl font-bold text-[#38B6FF] mb-2">
 											{stat.value}
 										</div>
 										<div className="text-foreground">{stat.label}</div>
@@ -491,15 +509,15 @@ const Index = () => {
 								Learn More About Us
 							</Button>
 						</div>
-						<div className="relative animate-fade-in">
+						<div className="relative scroll-trigger opacity-0">
 							<img
 								src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
 								alt="Team working"
 								className="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
 							/>
-							<div className="absolute -bottom-6 -left-6 bg-card p-6 rounded-xl shadow-lg border border-border animate-bounce">
+							<div className="absolute -bottom-6 -left-6 bg-card p-6 rounded-xl shadow-lg border border-border">
 								<div className="flex items-center space-x-4">
-									<Award className="w-8 h-8 text-[#38B6FF] animate-pulse" />
+									<Award className="w-8 h-8 text-[#38B6FF]" />
 									<div>
 										<div className="font-bold text-foreground">Award Winning</div>
 										<div className="text-foreground">Design Agency</div>
@@ -526,13 +544,13 @@ const Index = () => {
 				<div className="container mx-auto px-4 relative z-10">
 					{/* Header */}
 					<div className="text-center mb-16">
-						<Badge className="mb-6 bg-[#38B6FF] text-white border-0 animate-pulse">
+						<Badge className="mb-6 bg-[#38B6FF] text-white border-0 scroll-trigger opacity-0">
 							Get In Touch
 						</Badge>
-						<h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 animate-fade-in">
+						<h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 scroll-trigger opacity-0">
 							Ready to Start Your Project?
 						</h2>
-						<p className="text-xl text-foreground max-w-3xl mx-auto mb-8 animate-fade-in">
+						<p className="text-xl text-foreground max-w-3xl mx-auto mb-8 scroll-trigger opacity-0">
 							Let's transform your vision into reality with cutting-edge
 							technology and creative excellence!
 						</p>
@@ -545,8 +563,8 @@ const Index = () => {
 								{ icon: Laptop, label: "Develop" },
 								{ icon: Rocket, label: "Deliver" }
 							].map((item, index) => (
-								<div key={index} className="flex flex-col items-center animate-fade-in transform hover:scale-110 transition-all duration-300" style={{ animationDelay: `${index * 0.2}s` }}>
-									<div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center mb-2 hover:border-[#38B6FF] transition-colors duration-300 animate-pulse">
+								<div key={index} className="flex flex-col items-center scroll-trigger opacity-0 transform hover:scale-110 transition-all duration-300" style={{ animationDelay: `${index * 0.2}s` }}>
+									<div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center mb-2 hover:border-[#38B6FF] transition-colors duration-300">
 										<item.icon className="w-6 h-6 text-[#38B6FF]" />
 									</div>
 									<span className="text-sm text-foreground font-medium">
@@ -559,7 +577,7 @@ const Index = () => {
 
 					<div className="grid lg:grid-cols-2 gap-16 items-start">
 						{/* Enhanced Contact Information */}
-						<div className="space-y-8 animate-fade-in">
+						<div className="space-y-8 scroll-trigger opacity-0">
 							<div>
 								<h3 className="text-2xl font-bold text-foreground mb-8">
 									Contact Information
@@ -570,8 +588,8 @@ const Index = () => {
 										{ icon: Phone, title: "Phone", content: ["+1 (555) 123-4567"] },
 										{ icon: MapPin, title: "Location", content: ["San Francisco, CA"] }
 									].map((item, index) => (
-										<div key={index} className="flex items-center space-x-4 transform hover:scale-105 transition-transform duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-											<div className="w-12 h-12 bg-[#38B6FF] rounded-lg flex items-center justify-center animate-pulse">
+										<div key={index} className="flex items-center space-x-4 transform hover:scale-105 transition-transform duration-300 scroll-trigger opacity-0" style={{ animationDelay: `${index * 0.1}s` }}>
+											<div className="w-12 h-12 bg-[#38B6FF] rounded-lg flex items-center justify-center">
 												<item.icon className="w-6 h-6 text-white" />
 											</div>
 											<div>
@@ -587,13 +605,13 @@ const Index = () => {
 						</div>
 
 						{/* Enhanced Contact Form */}
-						<div className="animate-fade-in">
+						<div className="scroll-trigger opacity-0">
 							<form onSubmit={handleSubmit} className="space-y-8">
 								{[
 									{ id: "name", label: "Your Name", type: "text", value: formData.name },
 									{ id: "email", label: "Your Email", type: "email", value: formData.email }
 								].map((field, index) => (
-									<div key={field.id} className="relative animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+									<div key={field.id} className="relative scroll-trigger opacity-0" style={{ animationDelay: `${index * 0.1}s` }}>
 										<input
 											type={field.type}
 											placeholder=" "
@@ -613,7 +631,7 @@ const Index = () => {
 									</div>
 								))}
 
-								<div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+								<div className="relative scroll-trigger opacity-0" style={{ animationDelay: '0.2s' }}>
 									<textarea
 										placeholder=" "
 										value={formData.message}
@@ -633,7 +651,7 @@ const Index = () => {
 
 								<Button
 									type="submit"
-									className="w-full h-14 bg-[#38B6FF] hover:bg-white hover:text-black text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-lg transform hover:scale-105 animate-fade-in"
+									className="w-full h-14 bg-[#38B6FF] hover:bg-white hover:text-black text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-lg transform hover:scale-105 scroll-trigger opacity-0"
 									style={{ animationDelay: '0.3s' }}
 								>
 									Send Message
@@ -659,11 +677,11 @@ const Index = () => {
 				<FloatingElements />
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="flex justify-end">
-						<div className="flex flex-col items-center md:items-start text-center md:text-left max-w-xl ml-auto animate-fade-in">
+						<div className="flex flex-col items-center md:items-start text-center md:text-left max-w-xl ml-auto scroll-trigger opacity-0">
 							<h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
 								Are you ready to transform your business?
 							</h2>
-							<Button className="bg-[#38B6FF] hover:bg-white hover:text-black text-white px-8 py-4 rounded-lg shadow-lg text-lg font-semibold transform hover:scale-105 transition-all duration-300 animate-bounce">
+							<Button className="bg-[#38B6FF] hover:bg-white hover:text-black text-white px-8 py-4 rounded-lg shadow-lg text-lg font-semibold transform hover:scale-105 transition-all duration-300">
 								Contact Us
 							</Button>
 						</div>
@@ -675,9 +693,9 @@ const Index = () => {
 			<footer className="bg-black text-white py-16">
 				<div className="container mx-auto px-4">
 					<div className="grid md:grid-cols-4 gap-8">
-						<div className="animate-fade-in">
+						<div className="scroll-trigger opacity-0">
 							<div className="flex items-center space-x-2 mb-6">
-								<div className="w-8 h-8 bg-[#38B6FF] rounded-lg animate-pulse"></div>
+								<div className="w-8 h-8 bg-[#38B6FF] rounded-lg"></div>
 								<span className="text-2xl font-bold">HACHI AGENCY</span>
 							</div>
 							<p className="text-white mb-6">
@@ -690,12 +708,12 @@ const Index = () => {
 							{ title: "Company", links: ["About Us", "Portfolio", "Careers", "Contact"] },
 							{ title: "Connect", links: ["Twitter", "LinkedIn", "Instagram", "GitHub"] }
 						].map((section, index) => (
-							<div key={section.title} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+							<div key={section.title} className="scroll-trigger opacity-0" style={{ animationDelay: `${index * 0.1}s` }}>
 								<h4 className="text-lg font-semibold mb-6">{section.title}</h4>
 								<ul className="space-y-2 text-white">
 									{section.links.map((link, linkIndex) => (
 										<li key={link}>
-											<a href="#" className="hover:text-[#38B6FF] transition-all duration-300 transform hover:translate-x-1 inline-block animate-fade-in" style={{ animationDelay: `${linkIndex * 0.05}s` }}>
+											<a href="#" className="hover:text-[#38B6FF] transition-all duration-300 transform hover:translate-x-1 inline-block scroll-trigger opacity-0" style={{ animationDelay: `${linkIndex * 0.05}s` }}>
 												{link}
 											</a>
 										</li>
@@ -704,7 +722,7 @@ const Index = () => {
 							</div>
 						))}
 					</div>
-					<div className="border-t border-white mt-12 pt-8 text-center text-white animate-fade-in">
+					<div className="border-t border-white mt-12 pt-8 text-center text-white scroll-trigger opacity-0">
 						<p>&copy; 2024 HACHI AGENCY. All rights reserved.</p>
 					</div>
 				</div>

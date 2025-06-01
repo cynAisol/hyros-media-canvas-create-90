@@ -97,13 +97,13 @@
 
 @layer utilities {
   .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
+    animation: fadeIn 1s ease-out forwards;
   }
   
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(40px);
     }
     to {
       opacity: 1;
@@ -124,15 +124,16 @@
     }
   }
 
+  /* Smooth blob animations - no bouncing */
   @keyframes blob-float {
     0%, 100% {
       transform: translateY(0px) translateX(0px) scale(1);
     }
     33% {
-      transform: translateY(-20px) translateX(10px) scale(1.1);
+      transform: translateY(-15px) translateX(8px) scale(1.05);
     }
     66% {
-      transform: translateY(20px) translateX(-10px) scale(0.9);
+      transform: translateY(15px) translateX(-8px) scale(0.95);
     }
   }
 
@@ -149,5 +150,21 @@
     75% {
       border-radius: 40% 30% 60% 50% / 70% 50% 40% 30%;
     }
+  }
+
+  /* Scroll trigger base styles */
+  .scroll-trigger {
+    transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1);
+  }
+
+  .scroll-trigger.opacity-0 {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  /* Enhanced fade in animation for scroll triggers */
+  .scroll-trigger.animate-fade-in {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

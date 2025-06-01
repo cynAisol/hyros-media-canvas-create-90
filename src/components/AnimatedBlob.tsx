@@ -36,9 +36,9 @@ const AnimatedBlob: React.FC<AnimatedBlobProps> = ({
 
   return (
     <div 
-      className={`absolute ${sizeClasses[size]} ${colorClasses[color]} ${positionClasses[position]} rounded-full blur-3xl opacity-20 animate-pulse pointer-events-none select-none`}
+      className={`absolute ${sizeClasses[size]} ${colorClasses[color]} ${positionClasses[position]} rounded-full blur-3xl opacity-20 pointer-events-none select-none`}
       style={{
-        animation: `blob-float 6s ease-in-out infinite ${delay}s, blob-morph 8s ease-in-out infinite ${delay * 0.5}s`
+        animation: `blob-float 8s ease-in-out infinite ${delay}s, blob-morph 12s ease-in-out infinite ${delay * 0.5}s`
       }}
     />
   );
