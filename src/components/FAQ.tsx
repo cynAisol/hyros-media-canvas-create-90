@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import AnimatedBlob from "@/components/AnimatedBlob";
 
 const FAQ = () => {
   const faqs = [
@@ -37,6 +38,11 @@ const FAQ = () => {
 
   return (
     <section className="py-20 bg-white relative overflow-hidden">
+      {/* Animated Blobs for FAQ */}
+      <AnimatedBlob size="large" color="blue" position="top-left" delay={1} />
+      <AnimatedBlob size="medium" color="black" position="bottom-right" delay={3} />
+      <AnimatedBlob size="small" color="white" position="top-right" delay={0} />
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 flex flex-col items-center relative">
           <span className="absolute -left-8 top-2 text-3xl">❓</span>

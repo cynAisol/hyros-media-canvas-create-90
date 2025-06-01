@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -39,6 +38,7 @@ import WhyUs from "@/components/WhyUs";
 import FAQ from "@/components/FAQ";
 import TypingAnimation from "@/components/TypingAnimation";
 import Testimonials from "@/components/Testimonials";
+import AnimatedBlob from "@/components/AnimatedBlob";
 
 const Index = () => {
 	const [formData, setFormData] = useState({
@@ -174,11 +174,17 @@ const Index = () => {
 				</div>
 			</nav>
 
-			{/* Enhanced Hero Section */}
+			{/* Enhanced Hero Section with Animated Blobs */}
 			<section
 				id="home"
 				className="pt-20 min-h-screen relative overflow-hidden bg-white"
 			>
+				{/* Animated Blobs for Hero */}
+				<AnimatedBlob size="large" color="blue" position="top-left" delay={0} />
+				<AnimatedBlob size="medium" color="black" position="top-right" delay={2} />
+				<AnimatedBlob size="small" color="blue" position="bottom-left" delay={4} />
+				<AnimatedBlob size="medium" color="white" position="bottom-right" delay={1} />
+
 				<div className="relative z-10 container mx-auto px-4 py-20">
 					<div className="grid lg:grid-cols-2 gap-16 items-center">
 						<div className="space-y-8">
@@ -352,11 +358,16 @@ const Index = () => {
 			{/* Benefits/Why US Section */}
 			<WhyUs />
 
-			{/* Portfolio Section - Website previews */}
+			{/* Portfolio Section with Animated Blobs */}
 			<section
 				id="portfolio"
 				className="py-20 bg-white relative overflow-hidden"
 			>
+				{/* Animated Blobs for Portfolio */}
+				<AnimatedBlob size="large" color="black" position="top-right" delay={1} />
+				<AnimatedBlob size="medium" color="blue" position="bottom-left" delay={3} />
+				<AnimatedBlob size="small" color="white" position="center" delay={5} />
+
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="text-center mb-16 flex flex-col items-center relative">
 						<span className="absolute -left-8 top-2 text-3xl">💼</span>
@@ -415,9 +426,14 @@ const Index = () => {
 			{/* Working Process Section */}
 			<WorkingProcess />
 
-			{/* About Section */}
-			<section id="about" className="py-20 bg-white">
-				<div className="container mx-auto px-4">
+			{/* About Section with Animated Blobs */}
+			<section id="about" className="py-20 bg-white relative overflow-hidden">
+				{/* Animated Blobs for About */}
+				<AnimatedBlob size="medium" color="blue" position="top-left" delay={0} />
+				<AnimatedBlob size="large" color="black" position="bottom-right" delay={2} />
+				<AnimatedBlob size="small" color="white" position="top-right" delay={4} />
+
+				<div className="container mx-auto px-4 relative z-10">
 					<div className="grid lg:grid-cols-2 gap-16 items-center">
 						<div>
 							<Badge className="mb-4 bg-[#38B6FF] text-white">About Us</Badge>
