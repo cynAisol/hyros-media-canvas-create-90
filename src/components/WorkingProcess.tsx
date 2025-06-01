@@ -69,13 +69,7 @@ const WorkingProcess = () => {
           {/* Animated flowing line */}
           <div className="absolute top-1/2 left-0 right-0 h-1 transform -translate-y-1/2">
             <div className="w-full h-full relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#38B6FF] to-transparent opacity-50"
-                   style={{
-                     animation: 'flow-line 3s ease-in-out infinite',
-                     background: 'linear-gradient(90deg, transparent 0%, #38B6FF 50%, transparent 100%)',
-                     transform: 'translateX(-100%)'
-                   }}>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#38B6FF] to-transparent opacity-50 flow-line"></div>
             </div>
           </div>
 
@@ -136,20 +130,6 @@ const WorkingProcess = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes flow-line {
-          0% {
-            transform: translateX(-100%);
-          }
-          50% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-      `}</style>
     </section>
   );
 };
