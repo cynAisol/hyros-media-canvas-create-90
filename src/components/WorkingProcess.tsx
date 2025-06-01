@@ -33,14 +33,14 @@ const WorkingProcess = () => {
   ];
 
   return (
-    <section className="py-20 bg-black text-white relative overflow-hidden">
+    <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge className="mb-4 bg-[#38B6FF] text-white">Our Process</Badge>
+          <Badge className="mb-4 bg-orange-500 text-white">Our Process</Badge>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Our Working Process
           </h2>
-          <Button className="bg-[#38B6FF] hover:bg-[#2A9AE6] text-white rounded-full px-6 py-3">
+          <Button className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-6 py-3">
             <Play className="w-5 h-5 mr-2" />
             CLICK TO PLAY
           </Button>
@@ -57,22 +57,21 @@ const WorkingProcess = () => {
             <svg className="w-full h-24" viewBox="0 0 1200 100" fill="none">
               <path 
                 d="M0 50 Q300 20 600 50 T1200 50" 
-                stroke="#38B6FF" 
+                stroke="#fbbf24" 
                 strokeWidth="3" 
                 fill="none"
               />
               <path 
                 d="M0 50 Q300 80 600 50 T1200 50" 
-                stroke="#ffffff" 
+                stroke="#f97316" 
                 strokeWidth="2" 
                 fill="none"
               />
               <path 
                 d="M0 50 Q300 30 600 50 T1200 50" 
-                stroke="#38B6FF" 
+                stroke="#6b7280" 
                 strokeWidth="2" 
                 fill="none"
-                opacity="0.5"
               />
             </svg>
           </div>
@@ -87,16 +86,16 @@ const WorkingProcess = () => {
                 }`}
               >
                 {/* Step circle */}
-                <div className="w-6 h-6 rounded-full bg-[#38B6FF] mb-4 relative z-10"></div>
+                <div className="w-6 h-6 rounded-full bg-orange-500 mb-4 relative z-10"></div>
                 
                 {/* Step content */}
-                <div className={`bg-white text-black rounded-lg p-4 max-w-xs text-center ${
+                <div className={`bg-gray-800 rounded-lg p-4 max-w-xs text-center ${
                   step.position === "top" ? "order-first" : "order-last"
                 }`}>
-                  <h3 className="text-[#38B6FF] font-semibold text-lg mb-2">
+                  <h3 className="text-orange-400 font-semibold text-lg mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-black text-sm">
+                  <p className="text-gray-300 text-sm">
                     {step.description}
                   </p>
                 </div>
