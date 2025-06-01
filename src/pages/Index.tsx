@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -40,6 +39,7 @@ import FAQ from "@/components/FAQ";
 import TypingAnimation from "@/components/TypingAnimation";
 import Testimonials from "@/components/Testimonials";
 import AnimatedBlob from "@/components/AnimatedBlob";
+import FloatingElements from "@/components/FloatingElements";
 
 const Index = () => {
 	const [formData, setFormData] = useState({
@@ -185,6 +185,7 @@ const Index = () => {
 				<AnimatedBlob size="medium" color="white" position="top-right" delay={2} />
 				<AnimatedBlob size="small" color="blue" position="bottom-left" delay={4} />
 				<AnimatedBlob size="medium" color="white" position="bottom-right" delay={1} />
+				<FloatingElements />
 
 				<div className="relative z-10 container mx-auto px-4 py-20">
 					<div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -368,25 +369,28 @@ const Index = () => {
 				<AnimatedBlob size="large" color="white" position="top-right" delay={1} />
 				<AnimatedBlob size="medium" color="blue" position="bottom-left" delay={3} />
 				<AnimatedBlob size="small" color="white" position="center" delay={5} />
+				<FloatingElements />
 
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="text-center mb-16 flex flex-col items-center relative">
-						<span className="absolute -left-8 top-2 text-3xl">💼</span>
-						<Badge className="mb-4 bg-[#38B6FF] text-white">Our Work</Badge>
-						<h2 className="text-4xl md:text-5xl font-bold text-foreground mb-2 flex items-center justify-center gap-2">
+						<span className="absolute -left-8 top-2 text-3xl animate-bounce">💼</span>
+						<Badge className="mb-4 bg-[#38B6FF] text-white animate-pulse">Our Work</Badge>
+						<h2 className="text-4xl md:text-5xl font-bold text-foreground mb-2 flex items-center justify-center gap-2 animate-fade-in">
 							<span>Portfolio Highlights</span>
-							<span className="text-3xl">🎨</span>
+							<span className="text-3xl animate-bounce" style={{ animationDelay: '0.5s' }}>🎨</span>
 						</h2>
-						<p className="text-xl text-foreground max-w-3xl mx-auto mb-4">
+						<p className="text-xl text-foreground max-w-3xl mx-auto mb-4 animate-fade-in">
 							Discover some of our recent projects that showcase our expertise
 							and creativity.
 						</p>
-						<span className="absolute -right-8 top-2 text-3xl">✨</span>
+						<span className="absolute -right-8 top-2 text-3xl animate-bounce" style={{ animationDelay: '1s' }}>✨</span>
 					</div>
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{portfolioItems.map((item, index) => (
 							<a href={item.url} key={index}>
-								<Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 border-border bg-card">
+								<Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 border-border bg-card transform hover:scale-105 animate-fade-in"
+									style={{ animationDelay: `${index * 0.1}s` }}
+								>
 									<div className="relative overflow-hidden">
 										<img
 											src={item.image}
@@ -398,7 +402,7 @@ const Index = () => {
 									<CardHeader>
 										<div className="flex items-center justify-between">
 											<Badge className="bg-[#38B6FF] text-white">{item.category}</Badge>
-											<ArrowRight className="w-5 h-5 text-foreground group-hover:text-[#38B6FF] transition-colors" />
+											<ArrowRight className="w-5 h-5 text-foreground group-hover:text-[#38B6FF] transition-colors transform group-hover:translate-x-1 duration-300" />
 										</div>
 										<CardTitle className="group-hover:text-[#38B6FF] transition-colors text-foreground">
 											{item.title}
@@ -410,9 +414,9 @@ const Index = () => {
 					</div>
 					{/* Portfolio Showcase Card */}
 					<div className="flex justify-center mt-12">
-						<div className="bg-card rounded-xl shadow-lg p-6 max-w-lg text-left border border-border">
+						<div className="bg-card rounded-xl shadow-lg p-6 max-w-lg text-left border border-border hover:shadow-2xl transform hover:scale-105 transition-all duration-300 animate-fade-in">
 							<div className="text-[#38B6FF] font-bold mb-2 flex items-center gap-2">
-								<span>🎯</span>
+								<span className="animate-spin">🎯</span>
 								<span>Showcase Highlight</span>
 							</div>
 							<div className="text-foreground">
@@ -433,6 +437,7 @@ const Index = () => {
 				<AnimatedBlob size="medium" color="blue" position="top-left" delay={0} />
 				<AnimatedBlob size="large" color="white" position="bottom-right" delay={2} />
 				<AnimatedBlob size="small" color="white" position="top-right" delay={4} />
+				<FloatingElements />
 
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -500,9 +505,10 @@ const Index = () => {
 			{/* Contact Section - Clean Design */}
 			<section
 				id="contact"
-				className="py-20 bg-background"
+				className="py-20 bg-background relative overflow-hidden"
 			>
-				<div className="container mx-auto px-4">
+				<FloatingElements />
+				<div className="container mx-auto px-4 relative z-10">
 					{/* Header */}
 					<div className="text-center mb-16">
 						<Badge className="mb-6 bg-[#38B6FF] text-white border-0">
