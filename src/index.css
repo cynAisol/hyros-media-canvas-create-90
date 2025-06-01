@@ -197,7 +197,24 @@
     }
   }
 
+  /* Vertical flow animation for mobile */
+  @keyframes flow-line-vertical {
+    0% {
+      transform: translateY(-100%);
+    }
+    50% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
   .flow-line {
     animation: flow-line 3s ease-in-out infinite;
+  }
+
+  .flow-line-vertical {
+    animation: flow-line-vertical 3s ease-in-out infinite;
   }
 }

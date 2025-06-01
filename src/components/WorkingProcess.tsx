@@ -49,7 +49,7 @@ const WorkingProcess = () => {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             We follow a structured approach to deliver exceptional results
           </p>
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button className="bg-[#38B6FF] hover:bg-white hover:text-black text-white rounded-full px-6 py-3">
               <Play className="w-5 h-5 mr-2" />
               CLICK TO PLAY
@@ -61,20 +61,30 @@ const WorkingProcess = () => {
           </div>
         </div>
 
-        {/* Enhanced Process Timeline */}
+        {/* Mobile-First Responsive Process Timeline */}
         <div className="relative mt-20">
-          {/* Main connecting line */}
-          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#38B6FF] to-transparent transform -translate-y-1/2"></div>
+          {/* Desktop: Horizontal line */}
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#38B6FF] to-transparent transform -translate-y-1/2"></div>
           
-          {/* Animated flowing line */}
-          <div className="absolute top-1/2 left-0 right-0 h-1 transform -translate-y-1/2">
+          {/* Desktop: Animated flowing line */}
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 transform -translate-y-1/2">
             <div className="w-full h-full relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#38B6FF] to-transparent opacity-50 flow-line"></div>
             </div>
           </div>
 
-          {/* Process steps with enhanced styling */}
-          <div className="relative flex justify-between items-center">
+          {/* Mobile: Vertical line */}
+          <div className="lg:hidden absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-[#38B6FF] to-transparent transform -translate-x-1/2"></div>
+
+          {/* Mobile: Vertical flowing line */}
+          <div className="lg:hidden absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2">
+            <div className="w-full h-full relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#38B6FF] to-transparent opacity-50 flow-line-vertical"></div>
+            </div>
+          </div>
+
+          {/* Desktop Process steps */}
+          <div className="hidden lg:flex justify-between items-center">
             {processSteps.map((step, index) => (
               <div 
                 key={index} 
@@ -105,6 +115,45 @@ const WorkingProcess = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-[#38B6FF]/5 to-transparent rounded-xl"></div>
                   <div className="relative z-10">
                     <div className="flex items-center justify-center mb-3">
+                      <span className="text-sm font-medium text-[#38B6FF] bg-[#38B6FF]/10 px-3 py-1 rounded-full">
+                        Step {index + 1}
+                      </span>
+                    </div>
+                    <h3 className="text-[#38B6FF] font-bold text-xl mb-3 group-hover:text-white transition-colors duration-300">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile Process steps - Vertical layout */}
+          <div className="lg:hidden space-y-12">
+            {processSteps.map((step, index) => (
+              <div 
+                key={index} 
+                className="flex items-start gap-6 scroll-trigger opacity-0"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                {/* Step circle */}
+                <div className="relative group flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-[#38B6FF] relative z-10 flex items-center justify-center shadow-lg group-hover:shadow-[#38B6FF]/50 transition-all duration-300">
+                    <div className="w-6 h-6 rounded-full bg-white"></div>
+                  </div>
+                  
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 w-12 h-12 rounded-full bg-[#38B6FF] opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-300"></div>
+                </div>
+                
+                {/* Step content card */}
+                <div className="bg-card/80 backdrop-blur-sm text-foreground rounded-xl p-6 flex-1 border border-[#38B6FF]/20 hover:border-[#38B6FF]/50 hover:shadow-lg hover:shadow-[#38B6FF]/10 transform hover:scale-[1.02] transition-all duration-500 group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#38B6FF]/5 to-transparent rounded-xl"></div>
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-start mb-3">
                       <span className="text-sm font-medium text-[#38B6FF] bg-[#38B6FF]/10 px-3 py-1 rounded-full">
                         Step {index + 1}
                       </span>
