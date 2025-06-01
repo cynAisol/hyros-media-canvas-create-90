@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -127,45 +128,45 @@ const Index = () => {
 	];
 
 	return (
-		<div className="min-h-screen bg-white">
+		<div className="min-h-screen bg-background">
 			{/* Navigation */}
-			<nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-black">
+			<nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-border">
 				<div className="container mx-auto px-4 py-4">
 					<div className="flex items-center justify-between">
 						<div className="flex items-center space-x-2">
 							<div className="w-8 h-8 bg-[#38B6FF] rounded-lg"></div>
-							<span className="text-2xl font-bold text-black">
+							<span className="text-2xl font-bold text-foreground">
 								HACHI AGENCY
 							</span>
 						</div>
 						<div className="hidden md:flex items-center space-x-8">
 							<a
 								href="#home"
-								className="text-black hover:text-[#38B6FF] transition-colors"
+								className="text-foreground hover:text-[#38B6FF] transition-colors"
 							>
 								Home
 							</a>
 							<a
 								href="#services"
-								className="text-black hover:text-[#38B6FF] transition-colors"
+								className="text-foreground hover:text-[#38B6FF] transition-colors"
 							>
 								Services
 							</a>
 							<a
 								href="#portfolio"
-								className="text-black hover:text-[#38B6FF] transition-colors"
+								className="text-foreground hover:text-[#38B6FF] transition-colors"
 							>
 								Portfolio
 							</a>
 							<a
 								href="#about"
-								className="text-black hover:text-[#38B6FF] transition-colors"
+								className="text-foreground hover:text-[#38B6FF] transition-colors"
 							>
 								About
 							</a>
 							<a
 								href="#contact"
-								className="text-black hover:text-[#38B6FF] transition-colors"
+								className="text-foreground hover:text-[#38B6FF] transition-colors"
 							>
 								Contact
 							</a>
@@ -177,11 +178,11 @@ const Index = () => {
 			{/* Enhanced Hero Section with Animated Blobs */}
 			<section
 				id="home"
-				className="pt-20 min-h-screen relative overflow-hidden bg-white"
+				className="pt-20 min-h-screen relative overflow-hidden bg-background"
 			>
 				{/* Animated Blobs for Hero */}
 				<AnimatedBlob size="large" color="blue" position="top-left" delay={0} />
-				<AnimatedBlob size="medium" color="black" position="top-right" delay={2} />
+				<AnimatedBlob size="medium" color="white" position="top-right" delay={2} />
 				<AnimatedBlob size="small" color="blue" position="bottom-left" delay={4} />
 				<AnimatedBlob size="medium" color="white" position="bottom-right" delay={1} />
 
@@ -197,7 +198,7 @@ const Index = () => {
 
 							{/* Main Headline */}
 							<div className="animate-fade-in space-y-4">
-								<h1 className="text-5xl md:text-7xl font-bold text-black leading-tight">
+								<h1 className="text-5xl md:text-7xl font-bold text-foreground leading-tight">
 									Build Your
 									<br />
 									<span className="text-[#38B6FF]">
@@ -214,32 +215,32 @@ const Index = () => {
 
 							{/* Enhanced Description */}
 							<div className="animate-fade-in space-y-6">
-								<p className="text-xl md:text-2xl text-black max-w-2xl leading-relaxed">
+								<p className="text-xl md:text-2xl text-foreground max-w-2xl leading-relaxed">
 									We create{" "}
-									<span className="font-semibold text-black">
+									<span className="font-semibold text-foreground">
 										stunning, high-performance websites
 									</span>{" "}
 									that drive real results for your business. From concept to
 									launch, we're your digital transformation partners.
 								</p>
 
-								{/* Key Benefits */}
+								{/* Updated Key Benefits with new colors */}
 								<div className="flex flex-wrap gap-4">
-									<div className="flex items-center gap-2 bg-white border border-black px-3 py-2 rounded-full">
+									<div className="flex items-center gap-2 bg-card border border-[#38B6FF] px-3 py-2 rounded-full">
 										<CheckCircle className="w-4 h-4 text-[#38B6FF]" />
-										<span className="text-sm font-medium text-black">
+										<span className="text-sm font-medium text-foreground">
 											Fast Delivery
 										</span>
 									</div>
-									<div className="flex items-center gap-2 bg-white border border-black px-3 py-2 rounded-full">
-										<CheckCircle className="w-4 h-4 text-[#38B6FF]" />
-										<span className="text-sm font-medium text-black">
+									<div className="flex items-center gap-2 bg-card border border-white px-3 py-2 rounded-full">
+										<CheckCircle className="w-4 h-4 text-white" />
+										<span className="text-sm font-medium text-foreground">
 											24/7 Support
 										</span>
 									</div>
-									<div className="flex items-center gap-2 bg-white border border-black px-3 py-2 rounded-full">
+									<div className="flex items-center gap-2 bg-card border border-[#38B6FF] px-3 py-2 rounded-full">
 										<CheckCircle className="w-4 h-4 text-[#38B6FF]" />
-										<span className="text-sm font-medium text-black">
+										<span className="text-sm font-medium text-foreground">
 											100% Satisfaction
 										</span>
 									</div>
@@ -250,7 +251,7 @@ const Index = () => {
 							<div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
 								<Button
 									size="lg"
-									className="bg-[#38B6FF] hover:bg-black text-white text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+									className="bg-[#38B6FF] hover:bg-white hover:text-black text-white text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
 								>
 									Start Your Project
 									<ArrowRight className="ml-2 w-5 h-5" />
@@ -258,7 +259,7 @@ const Index = () => {
 								<Button
 									size="lg"
 									variant="outline"
-									className="border-2 border-black hover:border-[#38B6FF] text-black hover:text-[#38B6FF] text-lg px-8 py-6 transition-all duration-300 group"
+									className="border-2 border-white hover:border-[#38B6FF] text-white hover:text-[#38B6FF] text-lg px-8 py-6 transition-all duration-300 group"
 								>
 									<Play className="mr-2 w-5 h-5 group-hover:text-[#38B6FF]" />
 									Watch Demo
@@ -271,15 +272,15 @@ const Index = () => {
 									<div className="flex items-center gap-2">
 										<div className="flex -space-x-2">
 											<div className="w-8 h-8 bg-[#38B6FF] rounded-full border-2 border-white"></div>
-											<div className="w-8 h-8 bg-black rounded-full border-2 border-white"></div>
+											<div className="w-8 h-8 bg-white rounded-full border-2 border-white"></div>
 											<div className="w-8 h-8 bg-[#38B6FF] rounded-full border-2 border-white"></div>
-											<div className="w-8 h-8 bg-black rounded-full border-2 border-white flex items-center justify-center">
-												<span className="text-xs font-bold text-white">
+											<div className="w-8 h-8 bg-white rounded-full border-2 border-white flex items-center justify-center">
+												<span className="text-xs font-bold text-black">
 													+
 												</span>
 											</div>
 										</div>
-										<span className="text-sm text-black font-medium">
+										<span className="text-sm text-foreground font-medium">
 											50+ Happy Clients
 										</span>
 									</div>
@@ -290,7 +291,7 @@ const Index = () => {
 												className="w-4 h-4 fill-[#38B6FF] text-[#38B6FF]"
 											/>
 										))}
-										<span className="text-sm text-black ml-1">
+										<span className="text-sm text-foreground ml-1">
 											4.9/5 Rating
 										</span>
 									</div>
@@ -302,7 +303,7 @@ const Index = () => {
 						<div className="relative animate-fade-in">
 							<div className="relative">
 								{/* Main Image with enhanced styling */}
-								<div className="relative overflow-hidden rounded-3xl shadow-2xl bg-white border-2 border-black p-8">
+								<div className="relative overflow-hidden rounded-3xl shadow-2xl bg-card border-2 border-border p-8">
 									<img
 										src="https://d1hdtc0tbqeghx.cloudfront.net/wp-content/uploads/2024/02/29110639/Web-Design-and-Development-agency-Digital-Transformation.webp"
 										alt="Digital Transformation"
@@ -313,36 +314,36 @@ const Index = () => {
 									{/* Floating elements */}
 									<div className="absolute -top-4 -left-4 w-20 h-20 bg-[#38B6FF] rounded-2xl opacity-80 animate-pulse"></div>
 									<div
-										className="absolute -bottom-4 -right-4 w-16 h-16 bg-black rounded-xl opacity-60 animate-pulse"
+										className="absolute -bottom-4 -right-4 w-16 h-16 bg-white rounded-xl opacity-60 animate-pulse"
 										style={{ animationDelay: "1s" }}
 									></div>
 								</div>
 
 								{/* Stats Cards */}
-								<div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-lg border border-black">
+								<div className="absolute -bottom-6 -left-6 bg-card p-6 rounded-2xl shadow-lg border border-border">
 									<div className="flex items-center space-x-4">
 										<div className="w-12 h-12 bg-[#38B6FF] rounded-xl flex items-center justify-center">
 											<Zap className="w-6 h-6 text-white" />
 										</div>
 										<div>
-											<div className="font-bold text-black text-lg">
+											<div className="font-bold text-foreground text-lg">
 												Lightning Fast
 											</div>
-											<div className="text-black">99.9% Uptime</div>
+											<div className="text-foreground">99.9% Uptime</div>
 										</div>
 									</div>
 								</div>
 
-								<div className="absolute -top-6 -right-6 bg-white p-6 rounded-2xl shadow-lg border border-black">
+								<div className="absolute -top-6 -right-6 bg-card p-6 rounded-2xl shadow-lg border border-border">
 									<div className="flex items-center space-x-4">
 										<div className="w-12 h-12 bg-[#38B6FF] rounded-xl flex items-center justify-center">
 											<Award className="w-6 h-6 text-white" />
 										</div>
 										<div>
-											<div className="font-bold text-black text-lg">
+											<div className="font-bold text-foreground text-lg">
 												Award Winning
 											</div>
-											<div className="text-black">Design Agency</div>
+											<div className="text-foreground">Design Agency</div>
 										</div>
 									</div>
 								</div>
@@ -361,10 +362,10 @@ const Index = () => {
 			{/* Portfolio Section with Animated Blobs */}
 			<section
 				id="portfolio"
-				className="py-20 bg-white relative overflow-hidden"
+				className="py-20 bg-background relative overflow-hidden"
 			>
 				{/* Animated Blobs for Portfolio */}
-				<AnimatedBlob size="large" color="black" position="top-right" delay={1} />
+				<AnimatedBlob size="large" color="white" position="top-right" delay={1} />
 				<AnimatedBlob size="medium" color="blue" position="bottom-left" delay={3} />
 				<AnimatedBlob size="small" color="white" position="center" delay={5} />
 
@@ -372,11 +373,11 @@ const Index = () => {
 					<div className="text-center mb-16 flex flex-col items-center relative">
 						<span className="absolute -left-8 top-2 text-3xl">💼</span>
 						<Badge className="mb-4 bg-[#38B6FF] text-white">Our Work</Badge>
-						<h2 className="text-4xl md:text-5xl font-bold text-black mb-2 flex items-center justify-center gap-2">
+						<h2 className="text-4xl md:text-5xl font-bold text-foreground mb-2 flex items-center justify-center gap-2">
 							<span>Portfolio Highlights</span>
 							<span className="text-3xl">🎨</span>
 						</h2>
-						<p className="text-xl text-black max-w-3xl mx-auto mb-4">
+						<p className="text-xl text-foreground max-w-3xl mx-auto mb-4">
 							Discover some of our recent projects that showcase our expertise
 							and creativity.
 						</p>
@@ -385,7 +386,7 @@ const Index = () => {
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{portfolioItems.map((item, index) => (
 							<a href={item.url} key={index}>
-								<Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 border-black">
+								<Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 border-border bg-card">
 									<div className="relative overflow-hidden">
 										<img
 											src={item.image}
@@ -396,10 +397,10 @@ const Index = () => {
 									</div>
 									<CardHeader>
 										<div className="flex items-center justify-between">
-											<Badge className="bg-black text-white">{item.category}</Badge>
-											<ArrowRight className="w-5 h-5 text-black group-hover:text-[#38B6FF] transition-colors" />
+											<Badge className="bg-[#38B6FF] text-white">{item.category}</Badge>
+											<ArrowRight className="w-5 h-5 text-foreground group-hover:text-[#38B6FF] transition-colors" />
 										</div>
-										<CardTitle className="group-hover:text-[#38B6FF] transition-colors text-black">
+										<CardTitle className="group-hover:text-[#38B6FF] transition-colors text-foreground">
 											{item.title}
 										</CardTitle>
 									</CardHeader>
@@ -409,12 +410,12 @@ const Index = () => {
 					</div>
 					{/* Portfolio Showcase Card */}
 					<div className="flex justify-center mt-12">
-						<div className="bg-white rounded-xl shadow-lg p-6 max-w-lg text-left border border-black">
+						<div className="bg-card rounded-xl shadow-lg p-6 max-w-lg text-left border border-border">
 							<div className="text-[#38B6FF] font-bold mb-2 flex items-center gap-2">
 								<span>🎯</span>
 								<span>Showcase Highlight</span>
 							</div>
-							<div className="text-black">
+							<div className="text-foreground">
 								Each project represents our commitment to quality, innovation,
 								and client success. Ready to see your vision come to life?
 							</div>
@@ -427,20 +428,20 @@ const Index = () => {
 			<WorkingProcess />
 
 			{/* About Section with Animated Blobs */}
-			<section id="about" className="py-20 bg-white relative overflow-hidden">
+			<section id="about" className="py-20 bg-background relative overflow-hidden">
 				{/* Animated Blobs for About */}
 				<AnimatedBlob size="medium" color="blue" position="top-left" delay={0} />
-				<AnimatedBlob size="large" color="black" position="bottom-right" delay={2} />
+				<AnimatedBlob size="large" color="white" position="bottom-right" delay={2} />
 				<AnimatedBlob size="small" color="white" position="top-right" delay={4} />
 
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="grid lg:grid-cols-2 gap-16 items-center">
 						<div>
 							<Badge className="mb-4 bg-[#38B6FF] text-white">About Us</Badge>
-							<h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
+							<h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
 								Crafting Digital Excellence Since Day One
 							</h2>
-							<p className="text-lg text-black mb-8">
+							<p className="text-lg text-foreground mb-8">
 								At HACHI AGENCY, we're passionate about creating digital
 								experiences that matter. Our team of skilled developers,
 								designers, and strategists work together to bring your vision to
@@ -451,22 +452,22 @@ const Index = () => {
 									<div className="text-3xl font-bold text-[#38B6FF] mb-2">
 										49+
 									</div>
-									<div className="text-black">Projects Completed</div>
+									<div className="text-foreground">Projects Completed</div>
 								</div>
 								<div className="text-center">
 									<div className="text-3xl font-bold text-[#38B6FF] mb-2">
 										98%
 									</div>
-									<div className="text-black">Client Satisfaction</div>
+									<div className="text-foreground">Client Satisfaction</div>
 								</div>
 								<div className="text-center">
 									<div className="text-3xl font-bold text-[#38B6FF] mb-2">
 										5+
 									</div>
-									<div className="text-black">Years Experience</div>
+									<div className="text-foreground">Years Experience</div>
 								</div>
 							</div>
-							<Button className="bg-[#38B6FF] hover:bg-black text-white">
+							<Button className="bg-[#38B6FF] hover:bg-white hover:text-black text-white">
 								Learn More About Us
 							</Button>
 						</div>
@@ -476,12 +477,12 @@ const Index = () => {
 								alt="Team working"
 								className="rounded-2xl shadow-2xl"
 							/>
-							<div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg border border-black">
+							<div className="absolute -bottom-6 -left-6 bg-card p-6 rounded-xl shadow-lg border border-border">
 								<div className="flex items-center space-x-4">
 									<Award className="w-8 h-8 text-[#38B6FF]" />
 									<div>
-										<div className="font-bold text-black">Award Winning</div>
-										<div className="text-black">Design Agency</div>
+										<div className="font-bold text-foreground">Award Winning</div>
+										<div className="text-foreground">Design Agency</div>
 									</div>
 								</div>
 							</div>
@@ -499,7 +500,7 @@ const Index = () => {
 			{/* Contact Section - Clean Design */}
 			<section
 				id="contact"
-				className="py-20 bg-white"
+				className="py-20 bg-background"
 			>
 				<div className="container mx-auto px-4">
 					{/* Header */}
@@ -507,10 +508,10 @@ const Index = () => {
 						<Badge className="mb-6 bg-[#38B6FF] text-white border-0">
 							Get In Touch
 						</Badge>
-						<h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
+						<h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
 							Ready to Start Your Project?
 						</h2>
-						<p className="text-xl text-black max-w-3xl mx-auto mb-8">
+						<p className="text-xl text-foreground max-w-3xl mx-auto mb-8">
 							Let's transform your vision into reality with cutting-edge
 							technology and creative excellence!
 						</p>
@@ -518,34 +519,34 @@ const Index = () => {
 						{/* Process Icons */}
 						<div className="flex justify-center gap-12 mb-8">
 							<div className="flex flex-col items-center">
-								<div className="w-12 h-12 bg-white border-2 border-black rounded-full flex items-center justify-center mb-2">
+								<div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center mb-2">
 									<Search className="w-6 h-6 text-[#38B6FF]" />
 								</div>
-								<span className="text-sm text-black font-medium">
+								<span className="text-sm text-foreground font-medium">
 									Discover
 								</span>
 							</div>
 							<div className="flex flex-col items-center">
-								<div className="w-12 h-12 bg-white border-2 border-black rounded-full flex items-center justify-center mb-2">
+								<div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center mb-2">
 									<Palette className="w-6 h-6 text-[#38B6FF]" />
 								</div>
-								<span className="text-sm text-black font-medium">
+								<span className="text-sm text-foreground font-medium">
 									Design
 								</span>
 							</div>
 							<div className="flex flex-col items-center">
-								<div className="w-12 h-12 bg-white border-2 border-black rounded-full flex items-center justify-center mb-2">
+								<div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center mb-2">
 									<Laptop className="w-6 h-6 text-[#38B6FF]" />
 								</div>
-								<span className="text-sm text-black font-medium">
+								<span className="text-sm text-foreground font-medium">
 									Develop
 								</span>
 							</div>
 							<div className="flex flex-col items-center">
-								<div className="w-12 h-12 bg-white border-2 border-black rounded-full flex items-center justify-center mb-2">
+								<div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center mb-2">
 									<Rocket className="w-6 h-6 text-[#38B6FF]" />
 								</div>
-								<span className="text-sm text-black font-medium">
+								<span className="text-sm text-foreground font-medium">
 									Deliver
 								</span>
 							</div>
@@ -556,7 +557,7 @@ const Index = () => {
 						{/* Contact Information */}
 						<div className="space-y-8">
 							<div>
-								<h3 className="text-2xl font-bold text-black mb-8">
+								<h3 className="text-2xl font-bold text-foreground mb-8">
 									Contact Information
 								</h3>
 								<div className="space-y-6">
@@ -565,11 +566,11 @@ const Index = () => {
 											<Mail className="w-6 h-6 text-white" />
 										</div>
 										<div>
-											<div className="font-semibold text-black">Email</div>
-											<div className="text-black">
+											<div className="font-semibold text-foreground">Email</div>
+											<div className="text-foreground">
 												hachiagency.com@gmail.com
 											</div>
-											<div className="text-black">
+											<div className="text-foreground">
 												contact@hachiagency.com
 											</div>
 										</div>
@@ -579,8 +580,8 @@ const Index = () => {
 											<Phone className="w-6 h-6 text-white" />
 										</div>
 										<div>
-											<div className="font-semibold text-black">Phone</div>
-											<div className="text-black">+1 (555) 123-4567</div>
+											<div className="font-semibold text-foreground">Phone</div>
+											<div className="text-foreground">+1 (555) 123-4567</div>
 										</div>
 									</div>
 									<div className="flex items-center space-x-4">
@@ -588,10 +589,10 @@ const Index = () => {
 											<MapPin className="w-6 h-6 text-white" />
 										</div>
 										<div>
-											<div className="font-semibold text-black">
+											<div className="font-semibold text-foreground">
 												Location
 											</div>
-											<div className="text-black">San Francisco, CA</div>
+											<div className="text-foreground">San Francisco, CA</div>
 										</div>
 									</div>
 								</div>
@@ -609,12 +610,12 @@ const Index = () => {
 										onChange={(e) =>
 											setFormData({ ...formData, name: e.target.value })
 										}
-										className="peer w-full bg-transparent border-0 border-b-2 border-black focus:border-[#38B6FF] focus:outline-none py-3 px-0 text-black placeholder-transparent transition-colors duration-300"
+										className="peer w-full bg-transparent border-0 border-b-2 border-border focus:border-[#38B6FF] focus:outline-none py-3 px-0 text-foreground placeholder-transparent transition-colors duration-300"
 										id="name"
 									/>
 									<label
 										htmlFor="name"
-										className="absolute left-0 -top-6 text-black text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:text-[#38B6FF] peer-focus:text-sm"
+										className="absolute left-0 -top-6 text-foreground text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-foreground peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:text-[#38B6FF] peer-focus:text-sm"
 									>
 										Your Name
 									</label>
@@ -628,12 +629,12 @@ const Index = () => {
 										onChange={(e) =>
 											setFormData({ ...formData, email: e.target.value })
 										}
-										className="peer w-full bg-transparent border-0 border-b-2 border-black focus:border-[#38B6FF] focus:outline-none py-3 px-0 text-black placeholder-transparent transition-colors duration-300"
+										className="peer w-full bg-transparent border-0 border-b-2 border-border focus:border-[#38B6FF] focus:outline-none py-3 px-0 text-foreground placeholder-transparent transition-colors duration-300"
 										id="email"
 									/>
 									<label
 										htmlFor="email"
-										className="absolute left-0 -top-6 text-black text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:text-[#38B6FF] peer-focus:text-sm"
+										className="absolute left-0 -top-6 text-foreground text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-foreground peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:text-[#38B6FF] peer-focus:text-sm"
 									>
 										Your Email
 									</label>
@@ -646,12 +647,12 @@ const Index = () => {
 										onChange={(e) =>
 											setFormData({ ...formData, message: e.target.value })
 										}
-										className="peer w-full bg-transparent border-0 border-b-2 border-black focus:border-[#38B6FF] focus:outline-none py-3 px-0 text-black placeholder-transparent transition-colors duration-300 resize-none min-h-[100px]"
+										className="peer w-full bg-transparent border-0 border-b-2 border-border focus:border-[#38B6FF] focus:outline-none py-3 px-0 text-foreground placeholder-transparent transition-colors duration-300 resize-none min-h-[100px]"
 										id="message"
 									/>
 									<label
 										htmlFor="message"
-										className="absolute left-0 -top-6 text-black text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:text-[#38B6FF] peer-focus:text-sm"
+										className="absolute left-0 -top-6 text-foreground text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-foreground peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:text-[#38B6FF] peer-focus:text-sm"
 									>
 										Tell us about your project...
 									</label>
@@ -659,7 +660,7 @@ const Index = () => {
 
 								<Button
 									type="submit"
-									className="w-full h-14 bg-[#38B6FF] hover:bg-black text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
+									className="w-full h-14 bg-[#38B6FF] hover:bg-white hover:text-black text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
 								>
 									Send Message
 									<ArrowRight className="ml-2 w-5 h-5" />
@@ -672,7 +673,7 @@ const Index = () => {
 
 			{/* Call to Action Section - Boy Running as Full Background */}
 			<section
-				className="w-full py-20 bg-white flex items-center justify-center relative overflow-hidden"
+				className="w-full py-20 bg-background flex items-center justify-center relative overflow-hidden"
 				style={{
 					minHeight: "580px",
 					backgroundImage: "url('/img/boy-running.png')",
@@ -684,10 +685,10 @@ const Index = () => {
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="flex justify-end">
 						<div className="flex flex-col items-center md:items-start text-center md:text-left max-w-xl ml-auto">
-							<h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">
+							<h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
 								Are you ready to transform your business?
 							</h2>
-							<Button className="bg-[#38B6FF] hover:bg-black text-white px-8 py-4 rounded-lg shadow-lg text-lg font-semibold">
+							<Button className="bg-[#38B6FF] hover:bg-white hover:text-black text-white px-8 py-4 rounded-lg shadow-lg text-lg font-semibold">
 								Contact Us
 							</Button>
 						</div>

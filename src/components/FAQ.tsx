@@ -37,21 +37,21 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="py-20 bg-background relative overflow-hidden">
       {/* Animated Blobs for FAQ */}
       <AnimatedBlob size="large" color="blue" position="top-left" delay={1} />
-      <AnimatedBlob size="medium" color="black" position="bottom-right" delay={3} />
+      <AnimatedBlob size="medium" color="white" position="bottom-right" delay={3} />
       <AnimatedBlob size="small" color="white" position="top-right" delay={0} />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 flex flex-col items-center relative">
           <span className="absolute -left-8 top-2 text-3xl">❓</span>
           <Badge className="mb-4 bg-[#38B6FF] text-white">FAQ</Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-2 flex items-center justify-center gap-2">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-2 flex items-center justify-center gap-2">
             <span>Frequently Asked Questions</span>
             <span className="text-3xl">🤔</span>
           </h2>
-          <p className="text-xl text-black max-w-3xl mx-auto mb-4">
+          <p className="text-xl text-foreground max-w-3xl mx-auto mb-4">
             Get answers to the most common questions about our services and process.
           </p>
           <span className="absolute -right-8 top-2 text-3xl">💭</span>
@@ -63,12 +63,12 @@ const FAQ = () => {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-black rounded-lg px-6 border-0"
+                className="bg-card rounded-lg px-6 border border-border"
               >
-                <AccordionTrigger className="text-left text-lg font-semibold text-white hover:no-underline hover:text-[#38B6FF]">
+                <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:no-underline hover:text-[#38B6FF]">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-white leading-relaxed">
+                <AccordionContent className="text-muted-foreground leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -78,12 +78,12 @@ const FAQ = () => {
         
         {/* FAQ Support Card */}
         <div className="flex justify-center mt-12">
-          <div className="bg-black rounded-xl shadow-lg p-6 max-w-lg text-left border border-black">
+          <div className="bg-card rounded-xl shadow-lg p-6 max-w-lg text-left border border-border">
             <div className="text-[#38B6FF] font-bold mb-2 flex items-center gap-2">
               <span>🔍</span>
               <span>Still have questions?</span>
             </div>
-            <div className="text-white">Don't hesitate to reach out! Our team is here to help you understand exactly how we can bring your vision to life.</div>
+            <div className="text-foreground">Don't hesitate to reach out! Our team is here to help you understand exactly how we can bring your vision to life.</div>
           </div>
         </div>
       </div>

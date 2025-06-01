@@ -40,11 +40,11 @@ const WorkingProcess = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Our Working Process
           </h2>
-          <Button className="bg-[#38B6FF] hover:bg-[#2A9AE6] text-white rounded-full px-6 py-3">
+          <Button className="bg-[#38B6FF] hover:bg-white hover:text-black text-white rounded-full px-6 py-3">
             <Play className="w-5 h-5 mr-2" />
             CLICK TO PLAY
           </Button>
-          <Button className="absolute top-8 right-8 bg-white text-black hover:bg-gray-100 rounded-full px-6 py-3">
+          <Button className="absolute top-8 right-8 bg-white text-black hover:bg-[#38B6FF] hover:text-white rounded-full px-6 py-3">
             Let's get Started
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
