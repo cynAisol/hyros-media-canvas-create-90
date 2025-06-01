@@ -90,22 +90,21 @@ const Index = () => {
 		return { count, countRef, displayValue: `${count}${suffix}` };
 	};
 
-	// Enhanced scroll trigger animation hook
+	// Improved scroll trigger animation hook
 	useEffect(() => {
 		const observerOptions = {
-			threshold: 0.15,
-			rootMargin: '0px 0px -100px 0px'
+			threshold: 0.2,
+			rootMargin: '0px 0px -50px 0px'
 		};
 
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					entry.target.classList.add('animate-fade-in');
-					entry.target.classList.remove('opacity-0');
-				} else {
-					// Reset animation when element leaves viewport
-					entry.target.classList.remove('animate-fade-in');
-					entry.target.classList.add('opacity-0');
+					if (!entry.target.classList.contains('animated')) {
+						entry.target.classList.add('animate-fade-in');
+						entry.target.classList.remove('opacity-0');
+						entry.target.classList.add('animated');
+					}
 				}
 			});
 		}, observerOptions);
@@ -207,19 +206,18 @@ const Index = () => {
 			<nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-border">
 				<div className="container mx-auto px-4 py-4">
 					<div className="flex items-center justify-between">
-						<div className="flex items-center space-x-2 animate-fade-in">
+						<div className="flex items-center space-x-2">
 							<div className="w-8 h-8 bg-[#38B6FF] rounded-lg"></div>
 							<span className="text-2xl font-bold text-foreground">
 								HACHI AGENCY
 							</span>
 						</div>
 						<div className="hidden md:flex items-center space-x-8">
-							{['Home', 'Services', 'Portfolio', 'About', 'Contact'].map((item, index) => (
+							{['Home', 'Services', 'Portfolio', 'About', 'Contact'].map((item) => (
 								<a
 									key={item}
 									href={`#${item.toLowerCase()}`}
-									className="text-foreground hover:text-[#38B6FF] transition-all duration-300 transform hover:scale-110 animate-fade-in"
-									style={{ animationDelay: `${index * 0.1}s` }}
+									className="text-foreground hover:text-[#38B6FF] transition-all duration-300 transform hover:scale-110"
 								>
 									{item}
 								</a>
@@ -229,7 +227,7 @@ const Index = () => {
 				</div>
 			</nav>
 
-			{/* Enhanced Hero Section with Animated Blobs */}
+			{/* Enhanced Hero Section - NO SCROLL TRIGGERS */}
 			<section
 				id="home"
 				className="pt-20 min-h-screen relative overflow-hidden bg-background"
@@ -244,15 +242,15 @@ const Index = () => {
 				<div className="relative z-10 container mx-auto px-4 py-20">
 					<div className="grid lg:grid-cols-2 gap-16 items-center">
 						<div className="space-y-8">
-							{/* Badge with enhanced styling */}
-							<div className="scroll-trigger opacity-0">
+							{/* Badge with enhanced styling - NO SCROLL TRIGGER */}
+							<div>
 								<Badge className="bg-[#38B6FF] text-white border-0 px-4 py-2 text-sm font-medium">
 									✨ #1 Premium Web Agency
 								</Badge>
 							</div>
 
-							{/* Main Headline */}
-							<div className="scroll-trigger opacity-0 space-y-4">
+							{/* Main Headline - NO SCROLL TRIGGER */}
+							<div className="space-y-4">
 								<h1 className="text-5xl md:text-7xl font-bold text-foreground leading-tight">
 									Build Your
 									<br />
@@ -268,8 +266,8 @@ const Index = () => {
 								</h1>
 							</div>
 
-							{/* Enhanced Description */}
-							<div className="scroll-trigger opacity-0 space-y-6">
+							{/* Enhanced Description - NO SCROLL TRIGGER */}
+							<div className="space-y-6">
 								<p className="text-xl md:text-2xl text-foreground max-w-2xl leading-relaxed">
 									We create{" "}
 									<span className="font-semibold text-foreground">
@@ -302,8 +300,8 @@ const Index = () => {
 								</div>
 							</div>
 
-							{/* Enhanced CTAs */}
-							<div className="flex flex-col sm:flex-row gap-4 scroll-trigger opacity-0">
+							{/* Enhanced CTAs - NO SCROLL TRIGGER */}
+							<div className="flex flex-col sm:flex-row gap-4">
 								<Button
 									size="lg"
 									className="bg-[#38B6FF] hover:bg-white hover:text-black text-white text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
@@ -321,8 +319,8 @@ const Index = () => {
 								</Button>
 							</div>
 
-							{/* Social Proof */}
-							<div className="scroll-trigger opacity-0 pt-4">
+							{/* Social Proof - NO SCROLL TRIGGER */}
+							<div className="pt-4">
 								<div className="flex items-center gap-6">
 									<div className="flex items-center gap-2">
 										<div className="flex -space-x-2">
@@ -354,8 +352,8 @@ const Index = () => {
 							</div>
 						</div>
 
-						{/* Enhanced Visual Section */}
-						<div className="relative scroll-trigger opacity-0">
+						{/* Enhanced Visual Section - NO SCROLL TRIGGER */}
+						<div className="relative">
 							<div className="relative">
 								{/* Main Image with enhanced styling */}
 								<div className="relative overflow-hidden rounded-3xl shadow-2xl bg-card border-2 border-border p-8">
@@ -411,7 +409,7 @@ const Index = () => {
 			{/* Benefits/Why US Section */}
 			<WhyUs />
 
-			{/* Enhanced Portfolio Section - NO SCROLL TRIGGERS */}
+			{/* Portfolio Section - NO SCROLL TRIGGERS */}
 			<section
 				id="portfolio"
 				className="py-20 bg-background relative overflow-hidden"
@@ -499,11 +497,6 @@ const Index = () => {
 								<div className="text-[#38B6FF] font-bold mb-2 flex items-center gap-2">
 									<span>🎯</span>
 									<span>Showcase Highlight</span>
-									<div className="flex gap-1">
-										<div className="w-1 h-1 bg-[#38B6FF] rounded-full" style={{ animationDelay: '0s' }}></div>
-										<div className="w-1 h-1 bg-[#38B6FF] rounded-full" style={{ animationDelay: '0.2s' }}></div>
-										<div className="w-1 h-1 bg-[#38B6FF] rounded-full" style={{ animationDelay: '0.4s' }}></div>
-									</div>
 								</div>
 								<div className="text-foreground">
 									Each project represents our commitment to quality, innovation,
@@ -617,7 +610,7 @@ const Index = () => {
 								{ icon: Laptop, label: "Develop" },
 								{ icon: Rocket, label: "Deliver" }
 							].map((item, index) => (
-								<div key={index} className="flex flex-col items-center scroll-trigger opacity-0 transform hover:scale-110 transition-all duration-300" style={{ animationDelay: `${index * 0.2}s` }}>
+								<div key={index} className="flex flex-col items-center scroll-trigger opacity-0 transform hover:scale-110 transition-all duration-300">
 									<div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center mb-2 hover:border-[#38B6FF] transition-colors duration-300">
 										<item.icon className="w-6 h-6 text-[#38B6FF]" />
 									</div>
@@ -642,7 +635,7 @@ const Index = () => {
 										{ icon: Phone, title: "Phone", content: ["+1 (555) 123-4567"] },
 										{ icon: MapPin, title: "Location", content: ["San Francisco, CA"] }
 									].map((item, index) => (
-										<div key={index} className="flex items-center space-x-4 transform hover:scale-105 transition-transform duration-300 scroll-trigger opacity-0" style={{ animationDelay: `${index * 0.1}s` }}>
+										<div key={index} className="flex items-center space-x-4 transform hover:scale-105 transition-transform duration-300 scroll-trigger opacity-0">
 											<div className="w-12 h-12 bg-[#38B6FF] rounded-lg flex items-center justify-center">
 												<item.icon className="w-6 h-6 text-white" />
 											</div>
@@ -665,7 +658,7 @@ const Index = () => {
 									{ id: "name", label: "Your Name", type: "text", value: formData.name },
 									{ id: "email", label: "Your Email", type: "email", value: formData.email }
 								].map((field, index) => (
-									<div key={field.id} className="relative scroll-trigger opacity-0" style={{ animationDelay: `${index * 0.1}s` }}>
+									<div key={field.id} className="relative scroll-trigger opacity-0">
 										<input
 											type={field.type}
 											placeholder=" "
@@ -685,7 +678,7 @@ const Index = () => {
 									</div>
 								))}
 
-								<div className="relative scroll-trigger opacity-0" style={{ animationDelay: '0.2s' }}>
+								<div className="relative scroll-trigger opacity-0">
 									<textarea
 										placeholder=" "
 										value={formData.message}
@@ -706,7 +699,6 @@ const Index = () => {
 								<Button
 									type="submit"
 									className="w-full h-14 bg-[#38B6FF] hover:bg-white hover:text-black text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-lg transform hover:scale-105 scroll-trigger opacity-0"
-									style={{ animationDelay: '0.3s' }}
 								>
 									Send Message
 									<ArrowRight className="ml-2 w-5 h-5" />
@@ -719,7 +711,7 @@ const Index = () => {
 
 			{/* Call to Action Section - Boy Running as Full Background */}
 			<section
-				className="w-full py-20 bg-background flex items-center justify-center relative overflow-hidden"
+				className="w-full py-20 bg-background flex items-center justify-center relative overflow-hidden scroll-trigger opacity-0"
 				style={{
 					minHeight: "580px",
 					backgroundImage: "url('/img/boy-running.png')",
@@ -731,7 +723,7 @@ const Index = () => {
 				<FloatingElements />
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="flex justify-end">
-						<div className="flex flex-col items-center md:items-start text-center md:text-left max-w-xl ml-auto scroll-trigger opacity-0">
+						<div className="flex flex-col items-center md:items-start text-center md:text-left max-w-xl ml-auto">
 							<h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
 								Are you ready to transform your business?
 							</h2>
@@ -762,12 +754,12 @@ const Index = () => {
 							{ title: "Company", links: ["About Us", "Portfolio", "Careers", "Contact"] },
 							{ title: "Connect", links: ["Twitter", "LinkedIn", "Instagram", "GitHub"] }
 						].map((section, index) => (
-							<div key={section.title} className="scroll-trigger opacity-0" style={{ animationDelay: `${index * 0.1}s` }}>
+							<div key={section.title} className="scroll-trigger opacity-0">
 								<h4 className="text-lg font-semibold mb-6">{section.title}</h4>
 								<ul className="space-y-2 text-white">
 									{section.links.map((link, linkIndex) => (
 										<li key={link}>
-											<a href="#" className="hover:text-[#38B6FF] transition-all duration-300 transform hover:translate-x-1 inline-block scroll-trigger opacity-0" style={{ animationDelay: `${linkIndex * 0.05}s` }}>
+											<a href="#" className="hover:text-[#38B6FF] transition-all duration-300 transform hover:translate-x-1 inline-block scroll-trigger opacity-0">
 												{link}
 											</a>
 										</li>
