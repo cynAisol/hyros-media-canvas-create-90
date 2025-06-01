@@ -32,7 +32,7 @@ import {
 	Play,
 	CheckCircle,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import WorkingProcess from "@/components/WorkingProcess";
 import StrategicPartners from "@/components/StrategicPartners";
 import WhyUs from "@/components/WhyUs";
@@ -49,11 +49,52 @@ const Index = () => {
 		message: "",
 	});
 
-	// Scroll trigger animation hook
+	// Counter animation hook
+	const useCountAnimation = (end: number, duration: number = 2000, suffix: string = '') => {
+		const [count, setCount] = useState(0);
+		const [hasAnimated, setHasAnimated] = useState(false);
+		const countRef = useRef<HTMLDivElement>(null);
+
+		useEffect(() => {
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting && !hasAnimated) {
+						setHasAnimated(true);
+						let startTime: number;
+						const animate = (currentTime: number) => {
+							if (!startTime) startTime = currentTime;
+							const progress = Math.min((currentTime - startTime) / duration, 1);
+							
+							// Easing function for smooth animation
+							const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+							setCount(Math.floor(easeOutQuart * end));
+							
+							if (progress < 1) {
+								requestAnimationFrame(animate);
+							} else {
+								setCount(end);
+							}
+						};
+						requestAnimationFrame(animate);
+					}
+				});
+			}, { threshold: 0.3 });
+
+			if (countRef.current) {
+				observer.observe(countRef.current);
+			}
+
+			return () => observer.disconnect();
+		}, [end, duration, hasAnimated]);
+
+		return { count, countRef, displayValue: `${count}${suffix}` };
+	};
+
+	// Enhanced scroll trigger animation hook
 	useEffect(() => {
 		const observerOptions = {
-			threshold: 0.1,
-			rootMargin: '0px 0px -50px 0px'
+			threshold: 0.15,
+			rootMargin: '0px 0px -100px 0px'
 		};
 
 		const observer = new IntersectionObserver((entries) => {
@@ -61,6 +102,10 @@ const Index = () => {
 				if (entry.isIntersecting) {
 					entry.target.classList.add('animate-fade-in');
 					entry.target.classList.remove('opacity-0');
+				} else {
+					// Reset animation when element leaves viewport
+					entry.target.classList.remove('animate-fade-in');
+					entry.target.classList.add('opacity-0');
 				}
 			});
 		}, observerOptions);
@@ -150,6 +195,11 @@ const Index = () => {
 		"Dreams Reality",
 		"Vision to Life",
 	];
+
+	// Counter hooks for stats
+	const projectsCount = useCountAnimation(49, 2000, '+');
+	const satisfactionCount = useCountAnimation(98, 2000, '%');
+	const experienceCount = useCountAnimation(5, 2000, '+');
 
 	return (
 		<div className="min-h-screen bg-background">
@@ -361,7 +411,7 @@ const Index = () => {
 			{/* Benefits/Why US Section */}
 			<WhyUs />
 
-			{/* Enhanced Portfolio Section */}
+			{/* Enhanced Portfolio Section - NO SCROLL TRIGGERS */}
 			<section
 				id="portfolio"
 				className="py-20 bg-background relative overflow-hidden"
@@ -373,7 +423,7 @@ const Index = () => {
 				<FloatingElements />
 
 				<div className="container mx-auto px-4 relative z-10">
-					<div className="text-center mb-16 flex flex-col items-center relative scroll-trigger opacity-0">
+					<div className="text-center mb-16 flex flex-col items-center relative">
 						<Badge className="mb-4 bg-[#38B6FF] text-white">Our Work</Badge>
 						<h2 className="text-4xl md:text-5xl font-bold text-foreground mb-2 flex items-center justify-center gap-2">
 							<span>Portfolio Highlights</span>
@@ -386,9 +436,7 @@ const Index = () => {
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{portfolioItems.map((item, index) => (
 							<a href={item.url} key={index} className="group">
-								<Card className="group overflow-hidden transition-all duration-500 border-border bg-card transform hover:scale-[1.02] hover:shadow-2xl scroll-trigger opacity-0 relative"
-									style={{ animationDelay: `${index * 0.1}s` }}
-								>
+								<Card className="group overflow-hidden transition-all duration-500 border-border bg-card transform hover:scale-[1.02] hover:shadow-2xl relative">
 									{/* Animated border gradient */}
 									<div className="absolute inset-0 bg-gradient-to-r from-[#38B6FF]/20 via-transparent to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
 									
@@ -444,7 +492,7 @@ const Index = () => {
 					</div>
 					{/* Enhanced Portfolio Showcase Card */}
 					<div className="flex justify-center mt-12">
-						<div className="bg-card rounded-xl shadow-lg p-6 max-w-lg text-left border border-border hover:shadow-2xl transform hover:scale-105 transition-all duration-500 scroll-trigger opacity-0 relative overflow-hidden">
+						<div className="bg-card rounded-xl shadow-lg p-6 max-w-lg text-left border border-border hover:shadow-2xl transform hover:scale-105 transition-all duration-500 relative overflow-hidden">
 							{/* Animated background */}
 							<div className="absolute inset-0 bg-gradient-to-r from-[#38B6FF]/5 to-white/5"></div>
 							<div className="relative z-10">
@@ -470,7 +518,7 @@ const Index = () => {
 			{/* Working Process Section */}
 			<WorkingProcess />
 
-			{/* Enhanced About Section */}
+			{/* Enhanced About Section with Animated Counters */}
 			<section id="about" className="py-20 bg-background relative overflow-hidden">
 				{/* Animated Blobs for About */}
 				<AnimatedBlob size="medium" color="blue" position="top-left" delay={0} />
@@ -492,18 +540,24 @@ const Index = () => {
 								life with cutting-edge technology and creative innovation.
 							</p>
 							<div className="grid grid-cols-3 gap-8 mb-8">
-								{[
-									{ value: "49+", label: "Projects Completed" },
-									{ value: "98%", label: "Client Satisfaction" },
-									{ value: "5+", label: "Years Experience" }
-								].map((stat, index) => (
-									<div key={index} className="text-center transform hover:scale-110 transition-transform duration-300 scroll-trigger opacity-0" style={{ animationDelay: `${index * 0.2}s` }}>
-										<div className="text-3xl font-bold text-[#38B6FF] mb-2">
-											{stat.value}
-										</div>
-										<div className="text-foreground">{stat.label}</div>
+								<div ref={projectsCount.countRef} className="text-center transform hover:scale-110 transition-transform duration-300">
+									<div className="text-3xl font-bold text-[#38B6FF] mb-2">
+										{projectsCount.displayValue}
 									</div>
-								))}
+									<div className="text-foreground">Projects Completed</div>
+								</div>
+								<div ref={satisfactionCount.countRef} className="text-center transform hover:scale-110 transition-transform duration-300">
+									<div className="text-3xl font-bold text-[#38B6FF] mb-2">
+										{satisfactionCount.displayValue}
+									</div>
+									<div className="text-foreground">Client Satisfaction</div>
+								</div>
+								<div ref={experienceCount.countRef} className="text-center transform hover:scale-110 transition-transform duration-300">
+									<div className="text-3xl font-bold text-[#38B6FF] mb-2">
+										{experienceCount.displayValue}
+									</div>
+									<div className="text-foreground">Years Experience</div>
+								</div>
 							</div>
 							<Button className="bg-[#38B6FF] hover:bg-white hover:text-black text-white transform hover:scale-105 transition-all duration-300">
 								Learn More About Us
