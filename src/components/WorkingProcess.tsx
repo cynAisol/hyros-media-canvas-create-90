@@ -90,13 +90,13 @@ const WorkingProcess = () => {
                 <div className="w-6 h-6 rounded-full bg-[#38B6FF] mb-4 relative z-10"></div>
                 
                 {/* Step content */}
-                <div className={`bg-white text-black rounded-lg p-4 max-w-xs text-center ${
+                <div className={`bg-gray-800 text-white rounded-lg p-4 max-w-xs text-center border border-gray-700 ${
                   step.position === "top" ? "order-first" : "order-last"
                 }`}>
                   <h3 className="text-[#38B6FF] font-semibold text-lg mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-black text-sm">
+                  <p className="text-gray-300 text-sm">
                     {step.description}
                   </p>
                 </div>
